@@ -2,8 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Container } from '@mui/material'
 
+import './App.css';
+
 // COMPONENTS
 import Header from './components/Header';
+import Footer from './components/Footer';
+import FooterNexus from './components/FooterNexus';
 
 // PAGES
 import Home from './pages/Home';
@@ -21,8 +25,13 @@ function App() {
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/como-apoiar" element={<ComoApoiar />} />
           <Route path="/contato" element={<Contato />} />
-        </Routes>
+        </Routes>        
       </Container>
+      <div style={{position: 'absolute', bottom: '0'}}>
+         <Footer />
+        <FooterNexus />
+      </div>
+     
     </>
 
   );

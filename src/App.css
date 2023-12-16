@@ -1,0 +1,40 @@
+a.nav__link {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-right: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.nav__link.active {
+    color: #fff;
+    font-weight: bold;
+    background: #e9434b;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.menu_item{
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-right: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+}
+
+.menu_item_active {
+    color: #e9434b;
+    font-weight: bold;
+}

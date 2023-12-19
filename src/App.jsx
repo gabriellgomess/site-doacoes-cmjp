@@ -6,6 +6,7 @@ import './App.css';
 
 // COMPONENTS
 import Header from './components/Header';
+import SubHeader from './components/SubHeader';
 import Footer from './components/Footer';
 import FooterNexus from './components/FooterNexus';
 
@@ -19,19 +20,20 @@ function App() {
   return (
     <>
       <Header />
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ minHeight: '90vh' }}>
+        <SubHeader />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/como-apoiar" element={<ComoApoiar />} />
           <Route path="/contato" element={<Contato />} />
-        </Routes>        
+        </Routes>
       </Container>
-      <div style={{position: 'absolute', bottom: '0'}}>
-         <Footer />
+      <div>
+        <Footer />
         <FooterNexus />
       </div>
-     
+
     </>
 
   );

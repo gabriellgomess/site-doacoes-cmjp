@@ -20,8 +20,9 @@ function App() {
   return (
     <>
       <Header />
-      <Container maxWidth="lg" sx={{ minHeight: '90vh' }}>
-        <SubHeader />
+      <SubHeader />
+      <Container maxWidth="xl" sx={{ minHeight: '90vh' }}>
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />

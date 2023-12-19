@@ -22,25 +22,25 @@ const Header = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
-   
+
     const drawer = (
         <Drawer open={open} onClose={handleDrawerClose}>
-            <Box sx={{display: 'flex', justifyContent: 'end'}}>
+            <Box sx={{ display: 'flex', justifyContent: 'end' }}>
                 <IconButton onClick={handleDrawerClose}>
-                <FontAwesomeIcon icon={faXmark} />
+                    <FontAwesomeIcon icon={faXmark} />
                 </IconButton>
             </Box>
             <List>
-                <ListItem className={`menu_item ${location.pathname === '/'?'menu_item_active':''}`} component={Link} to="/" onClick={handleDrawerClose}>
+                <ListItem className={`menu_item ${location.pathname === '/' ? 'menu_item_active' : ''}`} component={Link} to="/" onClick={handleDrawerClose}>
                     Home
                 </ListItem>
-                <ListItem className={`menu_item ${location.pathname === '/sobre'?'menu_item_active':''}`} component={Link} to="/sobre" onClick={handleDrawerClose}>
+                <ListItem className={`menu_item ${location.pathname === '/sobre' ? 'menu_item_active' : ''}`} component={Link} to="/sobre" onClick={handleDrawerClose}>
                     Sobre
                 </ListItem>
-                <ListItem className={`menu_item ${location.pathname === '/como-apoiar'?'menu_item_active':''}`} component={Link} to="/como-apoiar" onClick={handleDrawerClose}>
+                <ListItem className={`menu_item ${location.pathname === '/como-apoiar' ? 'menu_item_active' : ''}`} component={Link} to="/como-apoiar" onClick={handleDrawerClose}>
                     Como apoiar
                 </ListItem>
-                <ListItem className={`menu_item ${location.pathname === '/contato'?'menu_item_active':''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
+                <ListItem className={`menu_item ${location.pathname === '/contato' ? 'menu_item_active' : ''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
                     Contato
                 </ListItem>
             </List>
@@ -48,9 +48,9 @@ const Header = () => {
     );
 
     return (
-        <header className="header" style={{ background: 'lightgrey' }}>
-            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: '30px', justifyContent: {xs: 'center', md: 'start'} }} maxWidth="lg">
-            <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+        <header className="header" style={{ background: '#fff' }}>
+            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: '80px', justifyContent: { xs: 'center', md: 'start' } }} maxWidth="lg">
+                <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                         <FontAwesomeIcon icon={faBars} />
                     </IconButton>
@@ -61,19 +61,19 @@ const Header = () => {
                     <img height="100%" src={logoADC} alt="" />
                 </Box>
 
-                
+
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <nav style={{ display: 'flex', gap: '15px' }} className="nav">
-                        <Link to="/" className={`nav__link ${location.pathname === '/'? 'active':''}`}>
+                        <Link to="/" className={`nav__link ${location.pathname === '/' ? 'active' : ''}`}>
                             Home
                         </Link>
-                        <Link to="/sobre" className={`nav__link ${location.pathname === '/sobre'? 'active':''}`}>
+                        <Link to="/sobre" className={`nav__link ${location.pathname === '/sobre' ? 'active' : ''}`}>
                             Sobre
                         </Link>
-                        <Link to="/como-apoiar" className={`nav__link ${location.pathname === '/como-apoiar'? 'active':''}`}>
+                        <Link to="/como-apoiar" className={`nav__link ${location.pathname === '/como-apoiar' ? 'active' : ''}`}>
                             Como apoiar
                         </Link>
-                        <Link to="/contato" className={`nav__link ${location.pathname === '/contato'? 'active':''}`}>
+                        <Link to="/contato" className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
                             Contato
                         </Link>
                     </nav>

@@ -16,28 +16,35 @@ const SubHeader = () => {
                     {
                         type: 'loop',
                         autoplay: true,
-                        interval: 3000,
-                        pauseOnHover: false,
+                        interval: 8000,
+                        pauseOnHover: true,
                         resetProgress: false,
                         arrows: false,
                         pagination: false,
                         width: '100%',
+                        speed: 3000,
                     }
                 }
                 aria-label="My Favorite Images">
                 <SplideSlide>
-                    <div style={{ backgroundImage: `url(${Img1})`, width: '100%', height: '500px', backgroundSize: 'cover' }}>
+                    <div style={{ backgroundImage: `url(${Img1})`, width: '100%', height: '500px', backgroundSize: 'cover', backgroundPositionY: '40%', padding: '0' }}>
+                        <div style={{ width: '100%', height: '100%', background: 'linear-gradient(90deg, rgb(44 60 231 / 65%) 16%, transparent 76%)' }}>
 
+                        </div>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
-                    <div style={{ backgroundImage: `url(${Img2})`, width: '100%', height: '500px', backgroundSize: 'cover' }}>
+                    <div style={{ backgroundImage: `url(${Img2})`, width: '100%', height: '500px', backgroundSize: 'cover', backgroundPositionY: '40%' }}>
+                        <div style={{ width: '100%', height: '100%', background: 'linear-gradient(90deg, rgb(44 60 231 / 65%) 16%, transparent 76%)' }}>
 
+                        </div>
                     </div>
                 </SplideSlide>
                 <SplideSlide>
-                    <div style={{ backgroundImage: `url(${Img3})`, width: '100%', height: '500px', backgroundSize: 'cover' }}>
+                    <div style={{ backgroundImage: `url(${Img3})`, width: '100%', height: '500px', backgroundSize: 'cover', backgroundPositionY: '40%' }}>
+                        <div style={{ width: '100%', height: '100%', background: 'linear-gradient(90deg, rgb(44 60 231 / 65%) 16%, transparent 76%)' }}>
 
+                        </div>
                     </div>
                 </SplideSlide>
             </Splide>

@@ -4,3 +4,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "LuckiestGuy";
+  src: url("assets/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Staatliches";
+  src: url("assets/fonts/Staatliches/Staatliches-Regular.ttf");
+}
+
+@font-face {
+  font-family: "BarlowRegular";
+  src: url("assets/fonts/Barlow/Barlow-Regular.ttf");
+}

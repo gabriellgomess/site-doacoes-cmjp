@@ -1,8 +1,12 @@
+
+import Campanhas from "../components/Campanhas";
+import ComoAjudar from "../components/ComoAjudar";
 const Home = () => {
-    return(
-        <div>
-            <h1 style={{fontFamily: "LuckiestGuy"}}>Home</h1>
-        </div>
+    return (
+        <>
+            <Campanhas />
+            <ComoAjudar />
+        </>
     )
 }
 

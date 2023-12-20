@@ -49,7 +49,7 @@ const Header = () => {
 
     return (
         <header className="header" style={{ background: '#fff' }}>
-            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: '80px', justifyContent: { xs: 'center', md: 'start' } }} maxWidth="lg">
+            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: {xs: '20px', md: '80px'}, justifyContent: { xs: 'center', md: 'start' } }} maxWidth="lg">
                 <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                         <FontAwesomeIcon icon={faBars} />

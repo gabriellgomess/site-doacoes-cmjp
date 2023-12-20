@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Container } from '@mui/material'
+import { Container, Box } from '@mui/material'
 
 import './App.css';
 
@@ -21,15 +21,17 @@ function App() {
     <>
       <Header />
       <SubHeader />
-      <Container maxWidth="xl" sx={{ minHeight: '90vh' }}>
-        
+      <Box sx={{ background: '#fdeced' }}>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/como-apoiar" element={<ComoApoiar />} />
           <Route path="/contato" element={<Contato />} />
         </Routes>
-      </Container>
+
+      </Box>
+
       <div>
         <Footer />
         <FooterNexus />

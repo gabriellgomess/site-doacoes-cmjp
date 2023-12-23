@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
+
 import axios from 'axios';
 
-import BtnSaibaMais from '../assets/img/saiba_mais.png';
-import BtnDoeAgora from '../assets/img/doe_agora_botao.png';
+import BtnSaibaMais from '../../assets/img/saiba_mais.png';
+import BtnDoeAgora from '../../assets/img/doe_agora_botao.png';
 
 import './Campanhas.css';
 
@@ -30,26 +35,30 @@ const Campanhas = () => {
         <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '50px' }}>
 
             <Box sx={{ width: { xs: '100%', md: '70%', lg: '900px' } }}>
-                <Splide
-                    options={{
-                        arrows: true,
-                        pagination: true,
-                        width: '100%',
-                        perPage: 3,
-                        breakpoints: {
-                            640: {
-                                perPage: 1,
-                            },
-                            768: {
-                                perPage: 2,
-                            }
-                        }
-
-                    }}
-                    aria-label="My Favorite Images"
-                >
+            <Swiper
+                spaceBetween={10}
+                slidesPerView={1}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
+                loop={true}
+                breakpoints={{
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    }
+                }}
+                navigation = {true}
+                pagination={{
+                    clickable: true,
+                }}
+                modules={[Navigation, Pagination]}
+            >
                     {slides?.map((slide, index) => (
-                        <SplideSlide key={index}>
+                        <SwiperSlide key={index}>
                             <Box
                                 sx={{
                                     maxWidth: '250px',
@@ -86,9 +95,9 @@ const Campanhas = () => {
                                     </Box>
                                 </Box>
                             </Box>
-                        </SplideSlide>
+                        </SwiperSlide>
                     ))}
-                </Splide>
+                </Swiper>
             </Box>
         </Box>
 

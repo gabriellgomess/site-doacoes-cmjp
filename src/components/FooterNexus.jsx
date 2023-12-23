@@ -1,9 +1,35 @@
 import React from 'react';
+import { Container, Box, Typography } from '@mui/material';
+import LogoNexus from '../assets/img/logo_nexus.png';
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { faGlobe, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 
 function FooterNexus() {
     return (
-        <footer style={{background: 'orange', width: '100vw'}}>
-            <p>Footer Nexus Tech.</p>
+        <footer style={{background: '#60aaa2', width: '100%', position: 'absolute', bottom: '0', padding: '20px 0'}}>
+            <Container maxWidth='lg' sx={{display: 'flex', alignItems: 'center', flexDirection: {xs: 'column', md: 'row'}}}>
+                <Box sx={{display: 'flex', alignItems: 'center', flexGrow: '1', gap: '10px'}}>
+                    <Box sx={{width: '50px'}}>
+                        <img width='100%' src={LogoNexus} alt="" />
+                    </Box>
+                    <Typography fontFamily="BarlowRegular" sx={{textAlign: 'center'}}>
+                        Desenvolvido por Nexus Tech
+                    </Typography>
+                </Box>
+                <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'start', flexGrow: '1'}}>
+                    <Typography fontFamily='BarlowRegular' fontSize='14px' color='#fff'><FontAwesomeIcon icon={faInstagram} /> @nexustech_oficial</Typography>
+                    <Typography fontFamily='BarlowRegular' fontSize='14px' color='#fff'><FontAwesomeIcon icon={faGlobe} /> https://nexustech.net.br</Typography>
+                    <Typography fontFamily='BarlowRegular' fontSize='14px' color='#fff'><FontAwesomeIcon icon={faEnvelope} /> contato@nexustech.net.br</Typography>
+                </Box>                  
+            </Container>
+            <Container maxWidth='lg' sx={{borderTop: '1px solid grey', marginTop: '10px', paddingTop: '10px'}}>
+                <Typography fontFamily='BarlowRegular' fontSize='12px' sx={{textAlign: 'center', color: ''}}>
+                    © {new Date().getFullYear()} - Nexus Tech - CNPJ: 44.049.457/0001-66
+                </Typography>
+            </Container>
         </footer>
     );
 }

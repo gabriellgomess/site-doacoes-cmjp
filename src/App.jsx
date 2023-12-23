@@ -8,7 +8,6 @@ import './App.css';
 import Header from './components/Header';
 import SubHeader from './components/SubHeader';
 import Footer from './components/Footer';
-import FooterNexus from './components/FooterNexus';
 
 // PAGES
 import Home from './pages/Home';
@@ -16,9 +15,31 @@ import Sobre from './pages/Sobre';
 import ComoApoiar from './pages/ComoApoiar';
 import Contato from './pages/Contato';
 
+//IMG
+import BotaoDoar from './assets/img/doe_agora_botao.png';
+
 function App() {
+  const [isShaking, setIsShaking] = useState(true);
+  useEffect(() => {
+    setIsShaking(true);
+    const intervalo = setInterval(() => {
+      
+      setIsShaking(false)
+    }, 3000); 
+   
+    return () => clearInterval(intervalo);
+  }, []);
+
   return (
     <>
+    <Box className={isShaking ? 'shake' : ''} style={{ 
+      position: 'fixed', 
+      right: '5%', 
+      bottom: '10%',
+      zIndex: '9999',
+    }}>
+      <img width="150px" src={BotaoDoar} alt="" />
+    </Box>
       <Header />
       <SubHeader />
       <Box sx={{ background: '#fdeced' }}>
@@ -34,7 +55,6 @@ function App() {
 
       <div>
         <Footer />
-        <FooterNexus />
       </div>
 
     </>

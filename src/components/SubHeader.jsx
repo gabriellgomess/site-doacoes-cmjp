@@ -1,11 +1,18 @@
 import { Box, Typography } from '@mui/material';
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
+
 
 import Img1 from '../assets/img/slide1.jpg';
 import Img2 from '../assets/img/slide2.jpg';
 import Img3 from '../assets/img/slide3.jpg';
 import Btn from '../assets/img/doe_agora_botao.png'
+
+
 
 const slides = [
     {
@@ -29,22 +36,20 @@ const slides = [
 const SubHeader = () => {
     return (
         <>
-            <Splide
-                options={{
-                    type: 'loop',
-                    autoplay: true,
-                    interval: 108000,
-                    pauseOnHover: true,
-                    resetProgress: false,
-                    arrows: false,
-                    pagination: false,
-                    width: '100%',
-                    speed: 3000,
+            <Swiper
+                spaceBetween={0}
+                slidesPerView={1}
+                effect={'fade'}
+                autoplay={{
+                    delay: 6000,
+                    disableOnInteraction: false,
                 }}
-                aria-label="My Favorite Images"
+                modules={[EffectFade, Navigation, Pagination, Autoplay]}
+                loop={true}
+                
             >
                 {slides.map((slide, index) => (
-                    <SplideSlide key={index}>
+                    <SwiperSlide key={index}>
                         <Box sx={{ backgroundImage: `url(${slide.img})`, width: '100%', height: {xs: '300px', md: '550px'}, backgroundSize: 'cover', backgroundPositionY: '40%' }}>
                             <Box sx={{ width: '100%', height: '100%', background: {xs: 'linear-gradient(90deg, rgb(1 6 65 / 50%) 100%, transparent 76%)', md: 'linear-gradient(90deg, rgb(1 6 65 / 65%) 16%, transparent 76%)'}, display: 'flex', alignItems: 'center' }}>
                                 <Box sx={{ width: { xs: "95%", md: "600px" }, marginLeft: {xs: '10px', md: '25%'} }}>
@@ -56,11 +61,11 @@ const SubHeader = () => {
                                 </Box>
                             </Box>
                         </Box>
-                    </SplideSlide>
+                    </SwiperSlide>
                 ))}
-            </Splide>
+            </Swiper>
         </>
     );
-}
+};
 
 export default SubHeader;

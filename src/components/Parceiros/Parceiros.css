@@ -1,0 +1,31 @@
+.swiper-button-prev::after {
+    content: '';
+}
+.swiper-button-next::after {
+    content: '';
+}
+.swiper-parceiros>.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: url('../../assets/img/seta_parceiros1.png');
+    background-size: cover;
+    width: 22px;
+    height: 38px;
+}
+
+.swiper-parceiros>.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    background-image: url('../../assets/img/seta_parceiros2.png');
+    background-size: cover;
+    width: 22px;
+    height: 38px;
+}
+
+.swiper-pagination{
+    margin-top: 20PX;
+}
+.swiper-pagination-bullet-active {
+    background-color: #f6a442 !important;
+}
+
+.swiper-wrapper{
+    padding-left: '0 40px'
+}
+

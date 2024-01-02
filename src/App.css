@@ -1,36 +1,61 @@
+.nav__link,
 a.nav__link {
-    color: #e9434b;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: normal;
-    margin-right: 1rem;
-    background: transparent;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
-    font-family: "LuckiestGuy"
+    color: #e9434b !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    font-weight: normal !important;
+    margin-right: 1rem !important;
+    background: transparent !important;
+    padding: 0.5rem !important;
+    border-radius: 0.8rem !important;
+    font-family: "LuckiestGuy" !important;
 }
 
 .nav__link.active {
-    color: #fff;
-    background: #e9434b;
-    padding: 0.5rem;
-    border-radius: 0.8rem;
+    color: #fff !important;
+    background: #e9434b !important;
+    padding: 0.5rem !important;
+    border-radius: 0.8rem !important;
 
 }
 
 .menu_item{
-    color: #000;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: normal;
-    margin-right: 1rem;
-    background: transparent;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    font-family: "LuckiestGuy"
+    color: #000 !important;
+    text-decoration: none !important;
+    font-size: 1rem !important;
+    font-weight: normal !important;
+    margin-right: 1rem !important;
+    background: transparent !important;
+    padding: 0.5rem !important;
+    border-radius: 0.5rem !important;
+    font-family: "LuckiestGuy" !important;
 
 }
 
 .menu_item_active {
     color: #e9434b;
+}
+
+.text_markdown{
+    color: #000 !important;
+    font-size: 1.1rem !important;
+    font-weight: normal !important;
+    margin-right: 1rem !important;
+    background: transparent !important;
+    padding: 0.5rem !important;
+    border-radius: 0.5rem !important;
+    font-family: "BarlowRegular" !important;
+}
+
+.text_markdown h1, 
+.text_markdown h2, 
+.text_markdown h3, 
+.text_markdown h4, 
+.text_markdown h5, 
+.text_markdown h6 {
+    margin: 20px 0;
+}
+
+.text_markdown p {
+    line-height: 1.5;
 }

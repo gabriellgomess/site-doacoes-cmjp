@@ -1,19 +1,30 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Container, Box, Drawer, IconButton, List, ListItem, useTheme } from "@mui/material";
+import { Container, Box, Drawer, IconButton, List, ListItem, Menu, MenuItem, Typography } from "@mui/material";
 // fontawesom
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 // Imagens
 import logoCMJP from "../assets/img/logo_horizontal_cmjp.png";
 import logoADC from "../assets/img/ADC_logotipo_vertical2.png";
 
 const Header = () => {
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick = (event) => {
+      setAnchorEl(event.currentTarget);      
+    };
+    
+    const handleClose = () => {
+      setAnchorEl(null);
+      handleDrawerClose();
+    };
+
     const location = useLocation();
 
     const [open, setOpen] = useState(false);
-    const theme = useTheme();
+    
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -22,6 +33,45 @@ const Header = () => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+    const links = [
+        {
+            label: 'Eventos',
+            path: '/eventos'
+        }, 
+        // {
+        //     label: 'Doação por Testamento',
+        //     path: '/doacao-por-testamento'
+        // }, 
+        {
+            label: 'Pix',
+            path: '/pix'
+        }, 
+        {
+            label: 'Nota Fiscal Gaúcha',
+            path: '/nota-fiscal-gaucha'        
+        },
+        {
+            label: 'Tampinha Legal',
+            path: '/tampinha-legal'        
+        },
+        {
+            label: 'Outras formas',
+            path: '/outras-formas'        
+        },
+        {
+            label: 'Lei da Solidariedade',
+            path: '/lei-da-solidariedade'        
+        },
+        {
+            label: 'Doe seu imposto de renda',
+            path: '/doe-seu-imposto-de-renda'        
+        },
+        {
+            label: 'Bazar Amigos da Casa',
+            path: '/bazar-amigos-da-casa'        
+        }
+    ]
 
     const drawer = (
         <Drawer open={open} onClose={handleDrawerClose}>
@@ -37,9 +87,9 @@ const Header = () => {
                 <ListItem className={`menu_item ${location.pathname === '/sobre' ? 'menu_item_active' : ''}`} component={Link} to="/sobre" onClick={handleDrawerClose}>
                     Sobre
                 </ListItem>
-                <ListItem className={`menu_item ${location.pathname === '/como-apoiar' ? 'menu_item_active' : ''}`} component={Link} to="/como-apoiar" onClick={handleDrawerClose}>
-                    Como apoiar
-                </ListItem>
+                <Typography className='menu_item' onClick={handleClick} >
+                    Como apoiar <FontAwesomeIcon icon={faChevronDown} />
+                </Typography>
                 <ListItem className={`menu_item ${location.pathname === '/contato' ? 'menu_item_active' : ''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
                     Contato
                 </ListItem>
@@ -47,8 +97,10 @@ const Header = () => {
         </Drawer>
     );
 
+
+
     return (
-        <header className="header" style={{ background: '#fff' }}>
+        <header className="header" style={{ background: '#fff', boxShadow: '2px 2px 13px rgba(0, 0, 0, 0.5)' }}>
             <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: {xs: '20px', md: '80px'}, justifyContent: { xs: 'center', md: 'start' } }} maxWidth="lg">
                 <Box sx={{ display: { xs: 'block', md: 'none' } }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
@@ -70,9 +122,26 @@ const Header = () => {
                         <Link to="/sobre" className={`nav__link ${location.pathname === '/sobre' ? 'active' : ''}`}>
                             Sobre
                         </Link>
-                        <Link to="/como-apoiar" className={`nav__link ${location.pathname === '/como-apoiar' ? 'active' : ''}`}>
-                            Como apoiar
-                        </Link>
+                        <div>
+                            <Typography sx={{cursor: 'pointer'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} className='nav__link'>
+                                Como apoiar <FontAwesomeIcon icon={faChevronDown} />
+                            </Typography>
+                            <Menu
+                                id="simple-menu"
+                                anchorEl={anchorEl}
+                                keepMounted
+                                open={Boolean(anchorEl)}
+                                onClose={handleClose}
+                            >
+                            {links.map((link, index) => (
+                                <MenuItem onClick={handleClose}>
+                                    <Link to={link.path} className={`nav__link ${location.pathname === link.path ? 'active' : ''}`}>
+                                        {link.label}
+                                    </Link>
+                                </MenuItem>
+                            ))}
+                            </Menu>
+                        </div>
                         <Link to="/contato" className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
                             Contato
                         </Link>
@@ -85,3 +154,9 @@ const Header = () => {
 }
 
 export default Header;
+
+{/* <MenuItem className="nav__link" onClick={handleClose}>
+<Link to="/eventos" className={`nav__link ${location.pathname === '/eventos' ? 'active' : ''}`}>
+    Eventos
+</Link>
+</MenuItem> */}

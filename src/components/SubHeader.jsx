@@ -1,3 +1,5 @@
+import React, {useState, useContext } from 'react';
+import ContextAPI from './ContextAPI';
 import { Box, Typography } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -34,6 +36,7 @@ const slides = [
 ];
 
 const SubHeader = () => {
+    const { open, setOpen } = useContext(ContextAPI);
     return (
         <>
             <Swiper
@@ -55,9 +58,9 @@ const SubHeader = () => {
                                 <Box sx={{ width: { xs: "95%", md: "600px" }, marginLeft: {xs: '10px', md: '25%'} }}>
                                     <Typography sx={{ fontFamily: "Staatliches", fontSize: {xs: '1.5rem', md: '4rem'}, color: "#fff", lineHeight: {xs: '35px', md: '60px'}, fontWeight: "100" }}>{slide.title}</Typography>
                                     <Typography sx={{ fontFamily: "BarlowLight", fontSize: {xs: '1rem', md: '1.2rem'}, color: "#fff", lineHeight: {xs: '25px', md: '40px'}, fontWeight: {xs: '900', md: '500'} }}>{slide.text}</Typography>
-                                    <a href={slide.link} target='blank'>
+                                    <Box sx={{cursor: 'pointer'}} onClick={() => setOpen(true)}>
                                         <img style={{marginTop: '15px'}}  width={150} src={Btn} alt="" />
-                                    </a>
+                                    </Box>
                                 </Box>
                             </Box>
                         </Box>

@@ -5,6 +5,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none !important;
+
+}
+
 /* Funny font */
 @font-face { 
   font-family: "LuckiestGuy";
@@ -38,6 +43,11 @@
 
 .texto_vermelho {
   color: #e9434b;
+}
+
+/* Propriedade do Timeline */
+.MuiTimelineItem-positionRight::before {
+  display: none !important;
 }
 
 /* ----------------------------------------------

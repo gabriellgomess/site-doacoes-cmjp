@@ -1,5 +1,6 @@
 import { Box, Typography, Container } from '@mui/material';
 import BarraOndas from '../../assets/img/barra_ondas.png';
+import { Link } from 'react-router-dom';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -20,17 +21,19 @@ const slides = [
         img: Img1,
         title: 'Eventos',
         text: 'Você pode realizar eventos e direcionar recursos para a Casa do Menino!',
-        link: 'https://amigosdacasa.org.br'
+        link: '/eventos'
     },
     {
         img: Img2,
-        title: 'Doação por Testamento',
-        text: 'Inclua a Casa do Menino no seu testamento e beneficie PCDs (pessoas com deficiência) de alta e média complexidade'
+        title: 'Doe seu imposto de renda',
+        text: 'Deduza doações do Imposto de Renda pelo programa Funcriança, aberto a pessoas físicas e jurídicas.',
+        link: '/doe-seu-imposto-de-renda'
     },
     {
         img: Img3,
         title: 'Bazar Amigos da Casa',
-        text: 'O Bazar Amigos da Casa é uma importante fonte de recurso da instituição. Apoie com a doação de roupas, calçados e acessórios novos para a nossa loja.'
+        text: 'O Bazar Amigos da Casa é uma importante fonte de recurso da instituição. Apoie com a doação de roupas, calçados e acessórios novos para a nossa loja.',
+        link: '/bazar-amigos-da-casa'
     }
 ];
 
@@ -108,8 +111,9 @@ const ComoAjudar = () => {
                                     {slide.text}
                                 </Typography>
                                 </Box>
-                               
-                                <img width="130px" style={{position: 'absolute', bottom: '30px'}} src={BtnSaibaMais} alt="" />
+                               <Link style={{position: 'absolute', bottom: '30px'}} to={slide.link}>
+                                <img width="130px" src={BtnSaibaMais} alt="" />
+                                 </Link>
                             
                             </Box>
                         </SwiperSlide>

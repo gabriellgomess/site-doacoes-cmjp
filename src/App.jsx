@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Container, Box } from '@mui/material'
+import { createTheme } from '@mui/material/styles';
 
 import ContextAPI from './components/ContextAPI';
 
@@ -35,6 +36,9 @@ import BotaoDoar from './assets/img/doe_agora_botao.png';
 function App() {
   const [open, setOpen] = useState(false);
   const [isShaking, setIsShaking] = useState(true);
+
+  const theme = createTheme();
+
   useEffect(() => {
     setIsShaking(true);
     const intervalo = setInterval(() => {

@@ -36,38 +36,47 @@ const Header = () => {
 
     const links = [
         {
+            id: 1,
             label: 'Eventos',
             path: '/eventos'
         }, 
         // {
+        //     id: 2,
         //     label: 'Doação por Testamento',
         //     path: '/doacao-por-testamento'
         // }, 
         {
+            id: 3,
             label: 'Pix',
             path: '/pix'
         }, 
         {
+            id: 4,
             label: 'Nota Fiscal Gaúcha',
             path: '/nota-fiscal-gaucha'        
         },
         {
+            id: 5,
             label: 'Tampinha Legal',
             path: '/tampinha-legal'        
         },
         {
+            id: 6,
             label: 'Outras formas',
             path: '/outras-formas'        
         },
         {
+            id: 7,
             label: 'Lei da Solidariedade',
             path: '/lei-da-solidariedade'        
         },
         {
+            id: 8,
             label: 'Doe seu imposto de renda',
             path: '/doe-seu-imposto-de-renda'        
         },
         {
+            id: 9,
             label: 'Bazar Amigos da Casa',
             path: '/bazar-amigos-da-casa'        
         }
@@ -90,9 +99,9 @@ const Header = () => {
                 <Typography className='menu_item' onClick={handleClick} >
                     Como apoiar <FontAwesomeIcon icon={faChevronDown} />
                 </Typography>
-                <ListItem className={`menu_item ${location.pathname === '/contato' ? 'menu_item_active' : ''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
+                {/* <ListItem className={`menu_item ${location.pathname === '/contato' ? 'menu_item_active' : ''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
                     Contato
-                </ListItem>
+                </ListItem> */}
             </List>
         </Drawer>
     );
@@ -134,7 +143,7 @@ const Header = () => {
                                 onClose={handleClose}
                             >
                             {links.map((link, index) => (
-                                <MenuItem onClick={handleClose}>
+                                <MenuItem key={index} onClick={handleClose}>
                                     <Link to={link.path} className={`nav__link ${location.pathname === link.path ? 'active' : ''}`}>
                                         {link.label}
                                     </Link>
@@ -142,9 +151,9 @@ const Header = () => {
                             ))}
                             </Menu>
                         </div>
-                        <Link to="/contato" className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
+                        {/* <Link to="/contato" className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
                             Contato
-                        </Link>
+                        </Link> */}
                     </nav>
                 </Box>
 

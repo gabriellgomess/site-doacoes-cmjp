@@ -29,6 +29,7 @@ import LeiDaSolidariedade from './pages/LeiDaSolidariedade';
 import DoeSeuImpostoDeRenda from './pages/DoeSeuImpostoDeRenda';
 import BazarAmigosDaCasa from './pages/BazarAmigosDaCasa';
 import PaginaCampanha from './pages/PaginaCampanha';
+import Admin from './pages/Admin';
 
 //IMG
 import BotaoDoar from './assets/img/doe_agora_botao.png';
@@ -83,7 +84,8 @@ function App() {
           <Route path="/lei-da-solidariedade" element={<LeiDaSolidariedade />} />
           <Route path="/doe-seu-imposto-de-renda" element={<DoeSeuImpostoDeRenda />} />
           <Route path="/bazar-amigos-da-casa" element={<BazarAmigosDaCasa />} />   
-          <Route path="/campanha/:id" element={<PaginaCampanha />} />      
+          <Route path="/campanha/:id" element={<PaginaCampanha />} />   
+          <Route path="/admin" element={<Admin />} />   
 
         </Routes>
 

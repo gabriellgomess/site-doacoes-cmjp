@@ -45,6 +45,10 @@ a {
   color: #e9434b;
 }
 
+.texto_amarelo{
+  color: #f6a442;
+}
+
 /* Propriedade do Timeline */
 .MuiTimelineItem-positionRight::before {
   display: none !important;

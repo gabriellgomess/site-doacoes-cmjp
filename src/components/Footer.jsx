@@ -16,7 +16,7 @@ function Footer() {
             <Box>
                <Box sx={{display: 'flex', flexDirection: {xs: 'column', md: 'row'}}}>
                     <Box sx={{flexGrow: '1', height: '120px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                        <img width={200} src={LogoCMJP} alt="" />
+                        <img width={80} src={LogoCMJP} alt="" />
                     </Box>
                     <Box sx={{flexGrow: '1', height: '120px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                         <Typography fontSize={24} fontFamily="Staatliches" className='texto_vermelho'>

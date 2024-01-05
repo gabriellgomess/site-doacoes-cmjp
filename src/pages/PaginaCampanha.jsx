@@ -10,6 +10,11 @@ const PaginaCampanha = () => {
     const [campanha, setCampanha] = useState(null); // Initialize as null to signify no data
     const [loading, setLoading] = useState(true);
 
+    useEffect(() => {
+        // Rola a página para o topo
+        window.scrollTo(0, 0);
+    }, []);
+
     // Effect to fetch campaign data
     useEffect(() => {
         const fetchCampanha = async () => {
@@ -42,24 +47,24 @@ const PaginaCampanha = () => {
 
     console.log(campanha);
     return (
-        <Container maxWidth="lg" sx={{padding:{xs: '40px 15px', md: '80px 0'}}}>
+        <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>
             <Typography className='texto_verde' variant="h3" component="h3" align="center" sx={{ fontFamily: 'Staatliches' }}>
                 {campanha?.attributes?.titulo}
             </Typography>
-            <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: {xs: '18px', md:'22px'} }}>
+            <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '18px', md: '22px' } }}>
                 {campanha?.attributes?.descricao}
             </Typography>
-            {imageUrl &&            
-            <Box sx={{
-                background: `url(https://strapi-production-c201.up.railway.app${imageUrl})`, 
-                backgroundSize: 'cover', 
-                width: {xs: '100%', md: '80%'}, 
-                height: {xs: '200px', md: '500px'},
-                margin: '25px auto',
+            {imageUrl &&
+                <Box sx={{
+                    background: `url(https://strapi-production-c201.up.railway.app${imageUrl})`,
+                    backgroundSize: 'cover',
+                    width: { xs: '100%', md: '80%' },
+                    height: { xs: '200px', md: '500px' },
+                    margin: '25px auto',
                 }}></Box>
-            }           
-                
-                <ReactMarkdown className='text_markdown' children={campanha?.attributes?.texto_longo}/>
+            }
+
+            <ReactMarkdown className='text_markdown' children={campanha?.attributes?.texto_longo} />
 
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '12px', md: '14px' }, margin: '30px 0', color: 'grey' }}>
                 Data de Publicação: {formatDate(campanha?.attributes?.publishedAt)}

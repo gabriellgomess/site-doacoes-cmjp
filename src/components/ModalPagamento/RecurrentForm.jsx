@@ -21,6 +21,7 @@ import { set, useForm } from "react-hook-form";
 import axios from "axios";
 import Logo from "../../assets/img/ADC_logotipo_vertical.png";
 import TableBillings from "./TableBillings";
+import swal from "sweetalert";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -142,6 +143,13 @@ const RecurrentForm = () => {
         if (response.data.status === "success") {
           console.log(response.data.message);
           setUpdate(!update);
+          reset();
+          swal({
+            title: "Doação recorrente criada com sucesso!",
+            text: "Na aba Minhas Doações você pode visualizar e editar suas doações recorrentes.",
+            icon: "success",
+            button: "Ok",
+          });
         } else if (response.data.status === "error") {
           console.log(response.data.message);
           setUpdate(!update);
@@ -165,15 +173,16 @@ const RecurrentForm = () => {
     event.target.value = valor === "0,00" ? "" : "R$ " + valor;
   };
 
- 
+
 
   const handleLogout = () => {
     localStorage.removeItem("loginToken"); // Remove o token de autenticação do localStorage
     setIsAuth(false); // Atualize o estado da autenticação
     // Você pode também redirecionar o usuário para a página inicial ou de login usando:
-    window.location.reload();  };
+    window.location.reload();
+  };
 
- 
+
 
   return (
     <Box sx={{ width: "100%" }}>
@@ -291,7 +300,7 @@ const RecurrentForm = () => {
                         sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}
                       >
                         <FormControl
-                          sx={{flexGrow: 1 }}
+                          sx={{ flexGrow: 1 }}
                         >
                           <InputLabel
                             sx={{ marginTop: "-6px" }}
@@ -315,7 +324,7 @@ const RecurrentForm = () => {
                           </Select>
                         </FormControl>
                         <FormControl
-                          sx={{flexGrow: 1 }}
+                          sx={{ flexGrow: 1 }}
                         >
                           <InputLabel
                             sx={{ marginTop: "-6px" }}
@@ -342,7 +351,7 @@ const RecurrentForm = () => {
 
                       {paymentMethod === "CREDIT_CARD" && (
                         <Card
-                         
+
                         >
                           <CardContent>
                             <Typography variant="h6" color="primary">
@@ -418,7 +427,7 @@ const RecurrentForm = () => {
         <CustomTabPanel value={value} index={1}>
           <TableBillings billings={billings} />
         </CustomTabPanel>
-      </Box>      
+      </Box>
     </Box>
   );
 };

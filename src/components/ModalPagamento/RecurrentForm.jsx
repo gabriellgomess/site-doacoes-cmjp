@@ -152,6 +152,12 @@ const RecurrentForm = () => {
           });
         } else if (response.data.status === "error") {
           console.log(response.data.message);
+          swal({
+            title: "Erro ao criar doação recorrente!",
+            text: response.data.message,
+            icon: "error",
+            button: "Ok",
+          });
           setUpdate(!update);
         }
       })

@@ -29,50 +29,61 @@ const DonationForm = ({ campanha }) => {
         data
       )
       .then((response) => {
-        const responseData = response.data;
-        console.log(responseData.invoiceUrl);
-        // Checa se existe erro na resposta
-        if (responseData.error) {
+
+        console.log(response);
+        if (response.data.status == "success") {
           swal({
-            title: "Erro ao criar doação",
-            text: responseData.error,
-            icon: "error",
-            button: "Tentar novamente",
+            title: "Doação criada com sucesso!",
+            text: "Ao clicar em continuar, você será redirecionado para a página de pagamento, você também pode acessar o link da doação no seu email.",
+            icon: "success",
+            buttons: {
+              cancel: {
+                text: "Cancelar",
+                value: null,
+                visible: true,
+                className: "",
+                closeModal: true,
+              },
+              confirm: {
+                text: "Continuar",
+                value: true,
+                visible: true,
+                className: "",
+                closeModal: true,
+              },
+            },
+          }).then((value) => {
+            if (value) {
+              window.open(response.data.data.invoiceUrl, "_blank");
+              setTimeout(() => {
+                window.location.reload();
+              }, 1000);
+            } else {
+              window.location.reload();
+            }
           });
-          return;
+        } else {
+          if (response.data.message) {
+            swal({
+              title: "Erro ao gerar doação",
+              text: response.data.message,
+              icon: "error",
+              button: "Tentar novamente",
+            });
+          } else {
+            swal({
+              title: "Erro ao gerar doação",
+              text: response.data.error,
+              icon: "error",
+              button: "Tentar novamente",
+            });
+          }
+
+
         }
 
         // Caso contrário, assume que a doação foi criada com sucesso
-        swal({
-          title: "Doação criada com sucesso!",
-          text: "Ao clicar em continuar, você será redirecionado para a página de pagamento, você também pode acessar o link da doação no seu email.",
-          icon: "success",
-          buttons: {
-            cancel: {
-              text: "Cancelar",
-              value: null,
-              visible: true,
-              className: "",
-              closeModal: true,
-            },
-            confirm: {
-              text: "Continuar",
-              value: true,
-              visible: true,
-              className: "",
-              closeModal: true,
-            },
-          },
-        }).then((value) => {
-          if (value) {
-            window.open(responseData.invoiceUrl, "_blank");
-            setTimeout(() => {
-              window.location.reload();
-            }, 1000);
-          } else {
-            window.location.reload();
-          }
-        });
+
       })
       .catch((error) => {
         // Trata erros de rede ou outros erros não esperados

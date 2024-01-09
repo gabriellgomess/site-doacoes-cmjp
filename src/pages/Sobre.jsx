@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Container, Box, Typography } from '@mui/material';
 import FotoBanner from '../assets/img/04521.jpg';
+import FotoBanner2 from '../assets/img/04500.jpg';
+import FotoBanner3 from '../assets/img/04647.jpg';
 import QRPix from '../assets/img/pix-banrisul.jpg';
 
 const Sobre = () => {
@@ -36,15 +38,23 @@ const Sobre = () => {
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
                 <span style={{ fontWeight: 'bold' }}>A instituição tem uma estrutura hospitalar – oferecendo enfermagem 24h – com capacidade de até 75 leitos.</span> A organização também dispõe de salas para atendimento médico clínico e neurológico de seus pacientes acolhidos, espaços interativos com equipamentos destinados à terapia ocupacional e fisioterápica. Além disso, a Casa tem em sua equipe nutricionistas, farmacêuticos, psicólogos, fonoaudiólogos e assistentes sociais que ampliam a rede de apoio no atendimento.
             </Typography>
-            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
-                Imagem: edit_casa_menino_jesus_fotos_carlos_macedo-04500
-            </Box>
+            <Box sx={{
+                background: `url(${FotoBanner2})`,
+                backgroundSize: 'cover',
+                width: { xs: '100%', md: '80%' },
+                height: { xs: '200px', md: '500px' },
+                margin: '25px auto',
+            }}></Box>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
                 Ao longo dos <span style={{ fontWeight: 'bold' }}>quase quarenta anos de funcionamento,</span> a Casa buscou se reinventar com o objetivo de proporcionar aos acolhidos uma melhor estrutura e atendimento, condizentes com as novas práticas de saúde e assistência. Essa reinvenção se deu após um profundo processo de entendimento das necessidades dos acolhidos, da sociedade e do papel dos serviços prestados pela Casa.
             </Typography>
-            <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', padding: '20px 0' }}>
-                Imagem: edit_casa_menino_jesus_fotos_carlos_macedo-04647
-            </Box>
+            <Box sx={{
+                background: `url(${FotoBanner3})`,
+                backgroundSize: 'cover',
+                width: { xs: '100%', md: '80%' },
+                height: { xs: '200px', md: '500px' },
+                margin: '25px auto',
+            }}></Box>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
                 Entre as iniciativas implementadas nos anos mais recentes, estão a <span style={{ fontWeight: 'bold' }}>profissionalização e ampliação do quadro funcional</span> – pois todo o atendimento de cuidado direto aos acolhidos e pacientes é realizado por funcionários da instituição – e a melhoria dos processos de gestão por meio do estabelecimento de estrutura de governança.
             </Typography>

@@ -140,6 +140,7 @@ const RecurrentForm = () => {
         data
       )
       .then((response) => {
+        console.log("=> ",response);
         if (response.data.status === "success") {
           console.log(response.data.message);
           setUpdate(!update);

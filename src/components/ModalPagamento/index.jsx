@@ -14,6 +14,7 @@ import {
   Dialog,
   AppBar,
   Toolbar,
+  Button
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Slide from '@mui/material/Slide';
@@ -31,6 +32,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 const ModalPagamento = () => {
   const { open, setOpen } = useContext(ContextAPI);
+  const { isAuth, setIsAuth } = useContext(ContextAPI);
   // State and Handlers for Basic Information
   const [valor, setValor] = useState("");
   const [formaPagamento, setFormaPagamento] = useState("");
@@ -103,14 +105,21 @@ const ModalPagamento = () => {
 
   const handleShowLogin = () => setShowRegister(false);
 
+  const handleLogout = () => {
+    localStorage.removeItem("loginToken"); // Remove o token de autenticação do localStorage
+    setIsAuth(false); // Atualize o estado da autenticação
+    // Você pode também redirecionar o usuário para a página inicial ou de login usando:
+    window.location.reload();
+  };
+
   return (
     <Dialog
-    fullWidth={true}
-    maxWidth='lg'
-    open={open}
-    onClose={handleClose}
-  >
-   <Box
+      fullWidth={true}
+      maxWidth='lg'
+      open={open}
+      onClose={handleClose}
+    >
+      <Box
         sx={{
           width: '100%',
           height: "100vh",
@@ -120,29 +129,36 @@ const ModalPagamento = () => {
           flexDirection: "column",
         }}
       >
-       
-        <FormControl component="fieldset">
-          <RadioGroup
-            row
-            aria-label="donationType"
-            name="donationType"
-            value={donationType}
-            onChange={(event) => setDonationType(event.target.value)}
-          >
-            <FormControlLabel
-              value="single"
-              control={<Radio />}
-              label={<Typography color="textPrimary">Doação Única</Typography>}
-            />
-            <FormControlLabel
-              value="recurring"
-              control={<Radio />}
-              label={
-                <Typography color="textPrimary">Doação Recorrente</Typography>
-              }
-            />
-          </RadioGroup>
-        </FormControl>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <FormControl component="fieldset">
+            <RadioGroup
+              row
+              aria-label="donationType"
+              name="donationType"
+              value={donationType}
+              onChange={(event) => setDonationType(event.target.value)}
+            >
+              <FormControlLabel
+                value="single"
+                control={<Radio />}
+                label={<Typography color="textPrimary">Doação Única</Typography>}
+              />
+              <FormControlLabel
+                value="recurring"
+                control={<Radio />}
+                label={
+                  <Typography color="textPrimary">Doação Recorrente</Typography>
+                }
+              />
+            </RadioGroup>
+          </FormControl>
+
+          <Button onClick={handleLogout} variant="outlined">
+            Sair
+          </Button>
+
+        </Box>
+
         <Typography
           sx={{
             padding: "0px 20px",
@@ -164,7 +180,7 @@ const ModalPagamento = () => {
             handleValorChange={handleValorChange}
             formaPagamento={formaPagamento}
             handleChange={handleChange}
-           
+
           />
         ) : isLoggedIn ? (
           <RecurrentForm />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   Card,
   CardContent,
@@ -15,6 +15,7 @@ import {
   Tab,
   Dialog,
 } from "@mui/material";
+import ContextAPI from '../ContextAPI'
 import PropTypes from "prop-types";
 import HelpIcon from "@mui/icons-material/Help";
 import { set, useForm } from "react-hook-form";
@@ -67,13 +68,15 @@ const RecurrentForm = () => {
     setValue(newValue);
   };
 
-  const [isAuth, setIsAuth] = useState(false);
+  
   const [theUser, setTheUser] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("");
   const [billings, setBillings] = useState([]);
   const [update, setUpdate] = useState(false);
   const [dialogEdit, setDialogEdit] = useState(false);
   const [contentDialogEdit, setContentDialogEdit] = useState([]);
+
+  const {isAuth, setIsAuth } = useContext(ContextAPI)
 
   const getBillings = async () => {
     if (!theUser) return;
@@ -180,25 +183,10 @@ const RecurrentForm = () => {
     event.target.value = valor === "0,00" ? "" : "R$ " + valor;
   };
 
-
-
-  const handleLogout = () => {
-    localStorage.removeItem("loginToken"); // Remove o token de autenticação do localStorage
-    setIsAuth(false); // Atualize o estado da autenticação
-    // Você pode também redirecionar o usuário para a página inicial ou de login usando:
-    window.location.reload();
-  };
-
-
-
   return (
     <Box sx={{ width: "100%" }}>
       <Box>
-        <Box sx={{ width: "100%", display: "flex", justifyContent: "end" }}>
-          <Button onClick={handleLogout} variant="outlined">
-            Sair
-          </Button>
-        </Box>
+        
 
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <Tabs
@@ -212,7 +200,7 @@ const RecurrentForm = () => {
         </Box>
         <CustomTabPanel value={value} index={0}>
           {isAuth && (
-            <Card elevation={0} sx={{ width: "100%", marginTop: "20px" }}>
+            <Card elevation={0} sx={{ width: "100%", marginTop: paymentMethod === "CREDIT_CARD"?"-20px":"10px" }}>
               <CardContent>
                 <Box sx={{ display: "flex" }}>
                   <Box

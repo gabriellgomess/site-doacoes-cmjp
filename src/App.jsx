@@ -36,6 +36,7 @@ import BotaoDoar from './assets/img/doe_agora_botao.png';
 
 function App() {
   const [open, setOpen] = useState(false);
+  const [isAuth, setIsAuth] = useState(false);
   const [isShaking, setIsShaking] = useState(true);
 
   const theme = createTheme();
@@ -43,28 +44,28 @@ function App() {
   useEffect(() => {
     setIsShaking(true);
     const intervalo = setInterval(() => {
-      
+
       setIsShaking(false)
-    }, 3000); 
-   
+    }, 3000);
+
     return () => clearInterval(intervalo);
   }, []);
 
   console.log(open);
 
   return (
-    <ContextAPI.Provider value={{ open, setOpen }}>
-    <Box className={isShaking ? 'shake' : ''} style={{ 
-      position: 'fixed', 
-      right: '5%', 
-      bottom: '10%',
-      zIndex: '9999',
-      cursor: 'pointer',
-    }}
-     onClick={() => setOpen(true)}
-    >
-      <img width="150px" src={BotaoDoar} alt="" />
-    </Box>
+    <ContextAPI.Provider value={{ open, setOpen, isAuth, setIsAuth }}>
+      <Box className={isShaking ? 'shake' : ''} style={{
+        position: 'fixed',
+        right: '5%',
+        bottom: '10%',
+        zIndex: '9999',
+        cursor: 'pointer',
+      }}
+        onClick={() => setOpen(true)}
+      >
+        <img width="150px" src={BotaoDoar} alt="" />
+      </Box>
       <ModalPagamento />
       <Header />
       {/* <SubHeader /> */}
@@ -83,9 +84,9 @@ function App() {
           <Route path="/outras-formas" element={<OutrasFormas />} />
           <Route path="/lei-da-solidariedade" element={<LeiDaSolidariedade />} />
           <Route path="/doe-seu-imposto-de-renda" element={<DoeSeuImpostoDeRenda />} />
-          <Route path="/bazar-amigos-da-casa" element={<BazarAmigosDaCasa />} />   
-          <Route path="/campanha/:id" element={<PaginaCampanha />} />   
-          <Route path="/admin" element={<Admin />} />   
+          <Route path="/bazar-amigos-da-casa" element={<BazarAmigosDaCasa />} />
+          <Route path="/campanha/:id" element={<PaginaCampanha />} />
+          <Route path="/admin" element={<Admin />} />
 
         </Routes>
 

@@ -196,14 +196,14 @@ export default function ModalCampanha({ open, handleClose, dadosCampanha }) {
                 required
               />
 
-              <TextField
+              {/* <TextField
                 size="small"
                 sx={{
                   width: { xs: "100%", sm: "100%", md: "100%", lg: "28%" },
                 }}
                 {...register("phone")}
                 label="Telefone"
-              />
+              /> */}
               <TextField
                 size="small"
                 sx={{
@@ -215,7 +215,7 @@ export default function ModalCampanha({ open, handleClose, dadosCampanha }) {
               />
             </Box>
             <Divider />
-            {/* Endereço */}
+            {/* Endereço
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
               <TextField
                 size="small"
@@ -343,7 +343,7 @@ export default function ModalCampanha({ open, handleClose, dadosCampanha }) {
                 </Select>
               </FormControl>
             </Box>
-            <Divider />
+            <Divider /> */}
 
             {/* Pagamento e outras informações */}
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>

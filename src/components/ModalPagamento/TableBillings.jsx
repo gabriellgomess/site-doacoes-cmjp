@@ -43,24 +43,38 @@ const [currentBilling, setCurrentBilling] = useState(null);
     }
 
     async function handleSubmit() {
-        // try {
-        //     await axios.put(`/yourEndpoint/${currentBilling.id}`, currentBilling);
-        //     setOpenDialog(false);
-        //     // Atualize a lista de cobranças ou refaça a requisição para obter a lista atualizada
-        // } catch (error) {
-        //     console.error("Erro ao atualizar a cobrança:", error);
-        // }
-        console.log(currentBilling)
-    }
+      try {
+          // Assegure-se de que currentBilling contém todas as informações necessárias
+          if (!currentBilling) {
+              console.error("Dados da cobrança não estão completos");
+              return;
+          }
+  
+          // Realiza a atualização da cobrança
+          // await axios.put(`/yourEndpoint/${currentBilling.id}`, currentBilling);
+          setOpenDialog(false);
 
-    const handleFormatCurrency = (event) => {
-        var valor = event.target.value.replace(/\D/g, "");
-        valor = (valor / 100).toFixed(2) + "";
-        valor = valor.replace(".", ",");
-        valor = valor.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-        valor = valor.replace(/(\d)(\d{3}),/g, "$1.$2,");
-        event.target.value = valor === "0,00" ? "" : "R$ " + valor;
-      };
+          console.log(currentBilling);
+  
+          // Aqui você pode adicionar uma lógica para atualizar a lista de cobranças na interface
+          // Por exemplo, você pode chamar uma função para refazer a requisição e obter a lista atualizada
+          // ou atualizar o estado local que armazena as cobranças.
+  
+      } catch (error) {
+          console.error("Erro ao atualizar a cobrança:", error);
+      }
+  }
+  
+
+  const handleFormatCurrency = (value) => {
+    let valor = value.replace(/\D/g, "");
+    valor = (valor / 100).toFixed(2) + "";
+    valor = valor.replace(".", ",");
+    valor = valor.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
+    valor = valor.replace(/(\d)(\d{3}),/g, "$1.$2,");
+    return valor === "0,00" ? "" : "R$ " + valor;
+};
+
     
     
     
@@ -127,16 +141,17 @@ const [currentBilling, setCurrentBilling] = useState(null);
             
         />
 
-    <TextField
-    
-    fullWidth
-    label="Valor"
-    value={currentBilling?.value}
-    onChange={(e) => {
-        const formattedValue = handleFormatCurrency(e);
-        setCurrentBilling({ ...currentBilling, value: formattedValue });
-    }}
-/>
+        <TextField
+        
+            fullWidth
+            label="Valor"
+            value={currentBilling?.value}
+            onChange={(e) => {
+              const formattedValue = handleFormatCurrency(e.target.value);
+              setCurrentBilling({ ...currentBilling, value: formattedValue });
+          }}
+          
+        />
 
         <TextField
         

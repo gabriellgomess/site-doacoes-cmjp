@@ -32,7 +32,7 @@ import PaginaCampanha from './pages/PaginaCampanha';
 import Admin from './pages/Admin';
 
 //IMG
-import BotaoDoar from './assets/img/doe_agora_botao.png';
+import BotaoDoar from './assets/img/doe_agora_botao2.png';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -57,14 +57,14 @@ function App() {
     <ContextAPI.Provider value={{ open, setOpen, isAuth, setIsAuth }}>
       <Box className={isShaking ? 'shake' : ''} style={{
         position: 'fixed',
-        right: '5%',
-        bottom: '10%',
+        right: '3%',
+        bottom: '8%',
         zIndex: '9999',
         cursor: 'pointer',
       }}
         onClick={() => setOpen(true)}
       >
-        <img width="150px" src={BotaoDoar} alt="" />
+        <img width="80px" src={BotaoDoar} alt="" />
       </Box>
       <ModalPagamento />
       <Header />

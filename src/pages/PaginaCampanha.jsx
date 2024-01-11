@@ -3,12 +3,25 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { Container, Box, Typography } from '@mui/material';
 import ReactMarkdown from 'react-markdown';
+import ModalCampanha from '../components/ModalCampanha';
+import BtnDoeAgora from '../assets/img/doe_agora_botao.png';
+
 
 
 const PaginaCampanha = () => {
     const { id } = useParams(); // Directly destructure id
     const [campanha, setCampanha] = useState(null); // Initialize as null to signify no data
     const [loading, setLoading] = useState(true);
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => {
+        setOpen(true); // Abre o modal quando o botão é clicado
+        setCampanha(campanha);
+    };
+
+    const handleClose = () => {
+        setOpen(false); // Fecha o modal // Limpa os dados da campanha
+    };
 
     useEffect(() => {
         // Rola a página para o topo
@@ -65,10 +78,13 @@ const PaginaCampanha = () => {
             }
 
             <ReactMarkdown className='text_markdown' children={campanha?.attributes?.texto_longo} />
-
+            <Box onClick={()=>handleOpen(campanha)} sx={{ textAlign: 'center', cursor: 'pointer', width: '350px' }}>
+                <img width='50%' src={BtnDoeAgora} alt="" />
+            </Box>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '12px', md: '14px' }, margin: '30px 0', color: 'grey' }}>
                 Data de Publicação: {formatDate(campanha?.attributes?.publishedAt)}
             </Typography>
+            <ModalCampanha open={open} handleClose={handleClose} dadosCampanha={campanha} />
         </Container>
     );
 };

@@ -134,8 +134,6 @@ export default function ModalCampanha({ open, handleClose, dadosCampanha }) {
       <Modal
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
       >
         <Box sx={ {
             position: 'absolute',

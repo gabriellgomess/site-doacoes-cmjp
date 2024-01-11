@@ -28,8 +28,6 @@ const Campanhas = () => {
         setDadosCampanha(slide);
     };
 
-    console.log(dadosCampanha);
-
     const handleClose = () => {
         setOpen(false); // Fecha o modal
         setDadosCampanha([]); // Limpa os dados da campanha

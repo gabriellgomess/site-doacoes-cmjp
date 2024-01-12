@@ -38,7 +38,7 @@ const Header = () => {
         {
             id: 1,
             label: 'Eventos',
-            path: '/eventos'
+            path: 'eventos'
         }, 
         // {
         //     id: 2,
@@ -53,17 +53,17 @@ const Header = () => {
         {
             id: 4,
             label: 'Nota Fiscal Gaúcha',
-            path: '/nota-fiscal-gaucha'        
+            path: 'nota-fiscal-gaucha'        
         },
         {
             id: 5,
             label: 'Tampinha Legal',
-            path: '/tampinha-legal'        
+            path: 'tampinha-legal'        
         },
         {
             id: 6,
             label: 'Outras formas',
-            path: '/outras-formas'        
+            path: 'outras-formas'        
         },
         {
             id: 7,
@@ -73,12 +73,17 @@ const Header = () => {
         {
             id: 8,
             label: 'Doe seu imposto de renda',
-            path: '/doe-seu-imposto-de-renda'        
+            path: 'doe-seu-imposto-de-renda'        
         },
         {
             id: 9,
             label: 'Bazar Amigos da Casa',
-            path: '/bazar-amigos-da-casa'        
+            path: 'bazar-amigos-da-casa'        
+        },
+        {
+            id: 10,
+            label: 'Contato',
+            path: 'contato'        
         }
     ]
 
@@ -99,9 +104,9 @@ const Header = () => {
                 <Typography className='menu_item' onClick={handleClick} >
                     Como apoiar <FontAwesomeIcon icon={faChevronDown} />
                 </Typography>
-                {/* <ListItem className={`menu_item ${location.pathname === '/contato' ? 'menu_item_active' : ''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
+                <ListItem className={`menu_item ${location.pathname === '/contato' ? 'menu_item_active' : ''}`} component={Link} to="/contato" onClick={handleDrawerClose}>
                     Contato
-                </ListItem> */}
+                </ListItem>
             </List>
         </Drawer>
     );
@@ -125,10 +130,10 @@ const Header = () => {
 
                 <Box sx={{ display: { xs: 'none', md: 'block' } }}>
                     <nav style={{ display: 'flex', gap: '15px' }} className="nav">
-                        <Link to="/" className={`nav__link ${location.pathname === '/' ? 'active' : ''}`}>
+                        <Link to={`${import.meta.env.VITE_URL}`} className={`nav__link ${location.pathname === '/' ? 'active' : ''}`}>
                             Home
                         </Link>
-                        <Link to="/sobre" className={`nav__link ${location.pathname === '/sobre' ? 'active' : ''}`}>
+                        <Link to={`${import.meta.env.VITE_URL}sobre`} className={`nav__link ${location.pathname === '/sobre' ? 'active' : ''}`}>
                             Sobre
                         </Link>
                         <div>
@@ -144,16 +149,16 @@ const Header = () => {
                             >
                             {links.map((link, index) => (
                                 <MenuItem key={index} onClick={handleClose}>
-                                    <Link to={link.path} className={`nav__link ${location.pathname === link.path ? 'active' : ''}`}>
+                                    <Link to={`${import.meta.env.VITE_URL}${link.path}`} className={`nav__link ${location.pathname === link.path ? 'active' : ''}`}>
                                         {link.label}
                                     </Link>
                                 </MenuItem>
                             ))}
                             </Menu>
                         </div>
-                        {/* <Link to="/contato" className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
+                        <Link to={`${import.meta.env.VITE_URL}contato`} className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
                             Contato
-                        </Link> */}
+                        </Link>
                     </nav>
                 </Box>
 
@@ -163,9 +168,3 @@ const Header = () => {
 }
 
 export default Header;
-
-{/* <MenuItem className="nav__link" onClick={handleClose}>
-<Link to="/eventos" className={`nav__link ${location.pathname === '/eventos' ? 'active' : ''}`}>
-    Eventos
-</Link>
-</MenuItem> */}

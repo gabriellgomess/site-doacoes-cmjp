@@ -72,21 +72,21 @@ function App() {
       <Box sx={{ background: '#fdeced' }}>
 
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/como-apoiar" element={<ComoApoiar />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/eventos" element={<Eventos />} />
-          <Route path="/doacao-por-testamento" element={<DoacaoTestamento />} />
-          <Route path="/pix" element={<Pix />} />
-          <Route path="/nota-fiscal-gaucha" element={<NotaFiscalGaucha />} />
-          <Route path="/tampinha-legal" element={<TampinhaLegal />} />
-          <Route path="/outras-formas" element={<OutrasFormas />} />
-          <Route path="/lei-da-solidariedade" element={<LeiDaSolidariedade />} />
-          <Route path="/doe-seu-imposto-de-renda" element={<DoeSeuImpostoDeRenda />} />
-          <Route path="/bazar-amigos-da-casa" element={<BazarAmigosDaCasa />} />
-          <Route path="/campanha/:id" element={<PaginaCampanha />} />
-          <Route path="/admin" element={<Admin />} />
+          <Route path={`${import.meta.env.VITE_URL}`} element={<Home />} />
+          <Route path={`${import.meta.env.VITE_URL}sobre`} element={<Sobre />} />
+          <Route path={`${import.meta.env.VITE_URL}como-apoiar`} element={<ComoApoiar />} />
+          <Route path={`${import.meta.env.VITE_URL}contato`} element={<Contato />} />
+          <Route path={`${import.meta.env.VITE_URL}eventos`} element={<Eventos />} />
+          <Route path={`${import.meta.env.VITE_URL}doacao-por-testamento`} element={<DoacaoTestamento />} />
+          <Route path={`${import.meta.env.VITE_URL}pix`} element={<Pix />} />
+          <Route path={`${import.meta.env.VITE_URL}nota-fiscal-gaucha`} element={<NotaFiscalGaucha />} />
+          <Route path={`${import.meta.env.VITE_URL}tampinha-legal`} element={<TampinhaLegal />} />
+          <Route path={`${import.meta.env.VITE_URL}outras-formas`} element={<OutrasFormas />} />
+          <Route path={`${import.meta.env.VITE_URL}lei-da-solidariedade`} element={<LeiDaSolidariedade />} />
+          <Route path={`${import.meta.env.VITE_URL}doe-seu-imposto-de-renda`} element={<DoeSeuImpostoDeRenda />} />
+          <Route path={`${import.meta.env.VITE_URL}bazar-amigos-da-casa`} element={<BazarAmigosDaCasa />} />
+          <Route path={`${import.meta.env.VITE_URL}campanha/:id`} element={<PaginaCampanha />} />
+          <Route path={`${import.meta.env.VITE_URL}admin`} element={<Admin />} />
 
         </Routes>
 

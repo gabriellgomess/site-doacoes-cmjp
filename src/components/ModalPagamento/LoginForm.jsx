@@ -5,13 +5,22 @@ import Img from '../../assets/img_doacao_recorrente.png';
 const LoginForm = ({ handleLogin, handleChangeLogin, handleShowRegister }) => {
   const { Paragraph } = Typography;
   return (
-    <Card bordered={false} style={{ minHeight: '600px' }}>
-      <Form
+    <Card bordered={false} style={{ minHeight: '500px' }}>
+      <div style={{display: 'flex', alignItems: 'center'}}>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px', width: '50%' }}>
+        <img width={120} src={Img} alt="Como funciona?" />
+        <div style={{ padding: '5px 30px' }}>
+          <Paragraph>Através da doação recorrente, você passa a doar periodicamente, você escolhe se será semanal, quinzenal, mensal, trimestral, semestral ou anual, a doação poderá ser de qualquer valor acima de R$5,00.</Paragraph>
+          <Paragraph>A qualquer momento, você pode editar sua doação, podendo mudar a periodicidade, o vencimento, o valor e a forma de pagamento </Paragraph>
+          <Paragraph>Além disso, você pode cancelar sua doação a qualquer momento.</Paragraph>
+        </div>
+      </div>
+         <Form
         onFinish={handleLogin}
         style={{
           display: "flex",
           flexDirection: "column",
-          maxWidth: "50%",
+          width: "50%",
           margin: "0 auto",
           gap: "20px",
         }}
@@ -45,14 +54,9 @@ const LoginForm = ({ handleLogin, handleChangeLogin, handleShowRegister }) => {
           </Button>
         </Form.Item>
       </Form>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
-        <img width={120} src={Img} alt="Como funciona?" />
-        <div style={{ padding: '5px 30px' }}>
-          <Paragraph>Através da doação recorrente, você passa a doar periodicamente, você escolhe se será semanal, quinzenal, mensal, trimestral, semestral ou anual, a doação poderá ser de qualquer valor acima de R$5,00.</Paragraph>
-          <Paragraph>A qualquer momento, você pode editar sua doação, podendo mudar a periodicidade, o vencimento, o valor e a forma de pagamento </Paragraph>
-          <Paragraph>Além disso, você pode cancelar sua doação a qualquer momento.</Paragraph>
-        </div>
+     
       </div>
+     
     </Card>
   );
 };

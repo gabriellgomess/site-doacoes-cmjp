@@ -43,7 +43,7 @@ const FormDoacaoUnica = ({ isMobile }) => {
     };
 
     return (
-        <Card bordered={false} style={{ minHeight: '600px' }}>
+        <Card bordered={false} style={{ minHeight: '500px' }}>
             <h1>Formulário de doação única</h1>
             <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>

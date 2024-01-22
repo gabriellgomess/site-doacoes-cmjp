@@ -82,7 +82,10 @@ const Modal = () => {
           onChange={(value) => setSelectedOption(value)}
           style={{ margin: '20px ', backgroundColor: '#fff' }}
         />
-        {renderContent()}
+        <div style={{minHeight: '600px'}}>
+          {renderContent()}
+        </div>
+        
       </>
     </ConfigProvider>
   </Dialog>

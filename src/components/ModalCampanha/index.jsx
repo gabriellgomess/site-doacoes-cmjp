@@ -1,404 +1,194 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
-import {
-  Box,
-  TextField,
-  Select,
-  MenuItem,
-  FormControl,
-  Button,
-  InputLabel,
-  Divider,
-  Typography,
-  Modal,
-} from "@mui/material";
-import axios from "axios";
-import Logo from "../../assets/img/ADC_logotipo_vertical.png";
-import swal from "sweetalert";
+import React from 'react';
+import { useForm, Controller } from 'react-hook-form';
+import { Form, Input, Button, Select, Card, Modal, ConfigProvider, Typography } from 'antd';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+import { CurrencyInput } from 'react-currency-mask';
+
+const { Option } = Select;
+const MySwal = withReactContent(Swal);
 
 
-export default function ModalCampanha({ open, handleClose, dadosCampanha }) {
-  const { register, handleSubmit, reset } = useForm();
-  const [addressData, setAddressData] = useState({});
+const ModalCampanha = ({ open, handleClose, dadosCampanha }) => {
+    // Definindo tokens de design personalizados
+const theme = {
+    components: {
+      Segmented: {
+        itemSelectedBg: '#73c4bb',
+        itemSelectedColor: '#fff',
+      },
+      Button: {
+        colorPrimary: '#73c4bb',
+        colorPrimaryHover: '#97e1d9',
+        colorPrimaryActive: '#41958c',
+        colorPrimaryFocus: '#41958c',
+  
+      },
+      Input: {
+        colorPrimary: '#73c4bb',
+        colorPrimaryActive: '#41958c',
+        colorPrimaryFocus: '#41958c',
+        colorPrimaryHover: '#97e1d9',
+      },
+      Select: {
+        colorPrimary: '#73c4bb',
+        colorPrimaryActive: '#41958c',
+        colorPrimaryFocus: '#41958c',
+        colorPrimaryHover: '#97e1d9',
+      },  
+      Tabs: {
+        colorPrimary: '#73c4bb',
+        colorPrimaryActive: '#41958c',
+        colorPrimaryFocus: '#41958c',
+        colorPrimaryHover: '#97e1d9',
+      },
+        
+    },
+  };
 
+  const { handleSubmit, control, reset } = useForm();
+
+  const isMobile = window.innerWidth <= 768;
+
+    console.log(dadosCampanha);
   const onSubmit = (data) => {
-    data.notificationDisabled = false;
-    data.value = data.value.replace("R$ ", "");
-    data.externalReference = dadosCampanha.attributes.id_campanha;
-
-    axios
-      .post(
-        "https://amigosdacasa.org.br/gerenciador-doacoes-amigosdacasa/api_site/asaas.php?param=38",
-        data
-      )
-      .then((response) => {
-
-        console.log(response);
-        if (response.data.status == "success") {
-          swal({
-            title: "Doação criada com sucesso!",
-            text: "Ao clicar em continuar, você será redirecionado para a página de pagamento, você também pode acessar o link da doação no seu email.",
-            icon: "success",
-            buttons: {
-              cancel: {
-                text: "Cancelar",
-                value: null,
-                visible: true,
-                className: "",
-                closeModal: true,
-              },
-              confirm: {
-                text: "Continuar",
-                value: true,
-                visible: true,
-                className: "",
-                closeModal: true,
-              },
-            },
-          }).then((value) => {
-            if (value) {
-              window.open(response.data.data.invoiceUrl, "_blank");
-              setTimeout(() => {
-                window.location.reload();
-              }, 1000);
-            } else {
-              window.location.reload();
-            }
+      data = {
+            ...data,
+            externalReference: dadosCampanha?.attributes?.id_campanha,
+      };
+      axios.post(`${import.meta.env.VITE_URL_AXIOS}/createClientAndDonation.php`, data)
+          .then((response) => {
+              if (response.data.success) {
+                  MySwal.fire({
+                      title: 'Sucesso!',
+                      text: response.data.message,
+                      icon: 'success',
+                      confirmButtonText: 'Ok'
+                  }).then((result) => {
+                      if (result.isConfirmed) {
+                          window.open(response.data.link, '_blank');
+                          reset();
+                      }
+                  })
+              } else {
+                  MySwal.fire({
+                      title: 'Erro!',
+                      text: response.data.message,
+                      icon: 'error',
+                      confirmButtonText: 'Ok'
+                  })
+              }
+          })
+          .catch((error) => {
+              console.log(error.response);
           });
-        } else {
-          if (response.data.message) {
-            swal({
-              title: "Erro ao gerar doação",
-              text: response.data.message,
-              icon: "error",
-              button: "Tentar novamente",
-            });
-          } else {
-            swal({
-              title: "Erro ao gerar doação",
-              text: response.data.error,
-              icon: "error",
-              button: "Tentar novamente",
-            });
-          }
-
-
-        }
-
-        // Caso contrário, assume que a doação foi criada com sucesso
-
-      })
-      .catch((error) => {
-        // Trata erros de rede ou outros erros não esperados
-        swal({
-          title: "Erro inesperado",
-          text: "Ocorreu um erro ao processar sua solicitação. Tente novamente mais tarde.",
-          icon: "error",
-          button: "Tentar novamente",
-        });
-      });
   };
 
-  const fetchAddress = (cep) => {
-    console.log("Buscando CEP");
-    axios
-      .get(`https://viacep.com.br/ws/${cep}/json/`)
-      .then((response) => {
-        if (!response.data.erro) {
-          setAddressData({
-            address: response.data.logradouro,
-            province: response.data.bairro,
-            city: response.data.localidade,
-            state: response.data.uf,
-          });
-          console.log("CEP encontrado");
-        } else {
-          console.error("CEP não encontrado");
-        }
-      })
-      .catch((error) => {
-        console.error("Erro ao buscar o CEP:", error);
-      });
-  };
-
-  const handleFormatCurrency = (event) => {
-    var valor = event.target.value.replace(/\D/g, "");
-    valor = (valor / 100).toFixed(2) + "";
-    valor = valor.replace(".", ",");
-    valor = valor.replace(/(\d)(\d{3})(\d{3}),/g, "$1.$2.$3,");
-    valor = valor.replace(/(\d)(\d{3}),/g, "$1.$2,");
-    event.target.value = valor === "0,00" ? "" : "R$ " + valor;
-  };
   return (
-    <div>
-      <Modal
-        open={open}
-        onClose={handleClose}
-      >
-        <Box sx={ {
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            width: {xs: '100%', md: '70%'},
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            p: 4,
-            }}>
-          <Typography className="texto_verde" id="modal-modal-title" variant="h4" component="h2" fontFamily="Staatliches">
-            Campanha {dadosCampanha?.attributes?.titulo}
-          </Typography>
-          <form onSubmit={handleSubmit(onSubmit)}>
-          <Box
-            sx={{
-              width: { xs: "100%", sm: "100%", md: "100%" },
-              display: "flex",
-              flexDirection: "column",
-              gap: "15px",
-            }}
-          >
-            {/* Informações básicas */}
-            <Box
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                gap: "15px",
-                width: { xs: "100%", sm: "100%", md: "100%" },
-              }}
-            >
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "58%" },
-                }}
-                {...register("name")}
-                label="Nome"
-                required
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "38%" },
-                }}
-                {...register("cpfCnpj")}
-                label="CPF/CNPJ"
-                required
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "39%" },
-                }}
-                {...register("email")}
-                label="Email"
-                required
-              />
+    <ConfigProvider theme={theme}>
+    <Modal
+    title="Doação para a campanha "
+      open={open}
+      onCancel={handleClose}
+      footer={null}
+    >
+    
+        <h1 style={{color: '#73c4bb'}}>{dadosCampanha?.attributes?.titulo}</h1>
+        <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 3 }} label="Nome">
+                    <Controller
+                        name="nome"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => <Input {...field} />}
+                    />
+                </Form.Item>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} label="CPF/CNPJ">
+                    <Controller
+                        name="cpfCnpj"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => <Input {...field} />}
+                    />
+                </Form.Item>
+            </div>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} label="Email">
+                    <Controller
+                        name="email"
+                        control={control}
+                        rules={{ required: true, type: 'email' }}
+                        render={({ field }) => <Input {...field} />}
+                    />
+                </Form.Item>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} label="Celular">
+                    <Controller
+                        name="celular"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => <Input {...field} />}
+                    />
+                </Form.Item>
+            </div>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} label="Valor">
+                    <Controller
+                        name="value"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => 
+                        <CurrencyInput
+                            value={field.value}
+                            onChangeValue={(event, originalValue, maskedValue) => {
+                                field.onChange(originalValue);
 
-              {/* <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "28%" },
-                }}
-                {...register("phone")}
-                label="Telefone"
-              /> */}
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "28%" },
-                }}
-                {...register("mobilePhone")}
-                label="Celular"
-                required
-              />
-            </Box>
-            <Divider />
-            {/* Endereço
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "20%" },
-                }}
-                {...register("postalCode")}
-                label="CEP"
-                required
-                onBlur={(e) => {
-                  const cep = e.target.value.replace(/[^0-9]/g, "");
-                  if (cep.length === 8) {
-                    fetchAddress(cep);
-                  }
-                }}
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "55%" },
-                }}
-                {...register("address")}
-                label="Endereço"
-                required
-                value={addressData.address || ""}
-                onChange={(e) =>
-                  setAddressData((prev) => ({
-                    ...prev,
-                    address: e.target.value,
-                  }))
-                }
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "20%" },
-                }}
-                {...register("addressNumber")}
-                label="Número"
-                required
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "20%" },
-                }}
-                {...register("complement")}
-                label="Complemento"
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "30%" },
-                }}
-                {...register("province")}
-                label="Bairro"
-                required
-                value={addressData.province || ""}
-                onChange={(e) =>
-                  setAddressData((prev) => ({
-                    ...prev,
-                    province: e.target.value,
-                  }))
-                }
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "29%" },
-                }}
-                {...register("city")}
-                label="Cidade"
-                required
-                value={addressData.city || ""}
-                onChange={(e) =>
-                  setAddressData((prev) => ({ ...prev, city: e.target.value }))
-                }
-              />
-              <FormControl
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "15%" },
-                }}
-              >
-                <InputLabel sx={{ marginTop: "-6px" }}>Estado</InputLabel>
-                <Select
-                  size="small"
-                  {...register("state")}
-                  label="Estado"
-                  required
-                  value={addressData.state || ""}
-                  onChange={(e) =>
-                    setAddressData((prev) => ({
-                      ...prev,
-                      state: e.target.value,
-                    }))
-                  }
-                >
-                  <MenuItem value="AC">AC</MenuItem>
-                  <MenuItem value="AL">AL</MenuItem>
-                  <MenuItem value="AP">AP</MenuItem>
-                  <MenuItem value="AM">AM</MenuItem>
-                  <MenuItem value="BA">BA</MenuItem>
-                  <MenuItem value="CE">CE</MenuItem>
-                  <MenuItem value="DF">DF</MenuItem>
-                  <MenuItem value="ES">ES</MenuItem>
-                  <MenuItem value="GO">GO</MenuItem>
-                  <MenuItem value="MA">MA</MenuItem>
-                  <MenuItem value="MT">MT</MenuItem>
-                  <MenuItem value="MS">MS</MenuItem>
-                  <MenuItem value="MG">MG</MenuItem>
-                  <MenuItem value="PA">PA</MenuItem>
-                  <MenuItem value="PB">PB</MenuItem>
-                  <MenuItem value="PR">PR</MenuItem>
-                  <MenuItem value="PE">PE</MenuItem>
-                  <MenuItem value="PI">PI</MenuItem>
-                  <MenuItem value="RJ">RJ</MenuItem>
-                  <MenuItem value="RN">RN</MenuItem>
-                  <MenuItem value="RS">RS</MenuItem>
-                  <MenuItem value="RO">RO</MenuItem>
-                  <MenuItem value="RR">RR</MenuItem>
-                  <MenuItem value="SC">SC</MenuItem>
-                  <MenuItem value="SP">SP</MenuItem>
-                  <MenuItem value="SE">SE</MenuItem>
-                  <MenuItem value="TO">TO</MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Divider /> */}
+                            }}
+                            InputElement={
+                                <Input placeholder="Valor" {...field} />
+                            }
+                        />}
+                    />
+                </Form.Item>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} name="billingType" label="Método de Pagamento">
+                    <Controller
+                        name="billingType"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => (
+                            <Select {...field} placeholder="Selecione o método de pagamento">
+                                <Option value="BOLETO">Boleto</Option>
+                                <Option value="CREDIT_CARD">Cartão de Crédito</Option>
+                                <Option value="PIX">Pix</Option>
+                                <Option value="UNDEFINED">Definir no pagamento</Option>
+                            </Select>
+                        )}
+                    />
+                </Form.Item>
+                <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} label="Data de Vencimento">
+                    <Controller
+                        name="dueDate"
+                        control={control}
+                        rules={{ required: true }}
+                        render={({ field }) => <Input type="date" {...field} />}
+                    />
+                </Form.Item>
+            </div>
+            <Form.Item>
+                <div style={{ display: 'flex', gap: '15px' }}>
+                    <Button type="primary" htmlType="submit">
+                        Enviar
+                    </Button>
+                    <Button onClick={() => reset()}>Limpar</Button>
+                </div>
+            </Form.Item>
 
-            {/* Pagamento e outras informações */}
-            <Box sx={{ display: "flex", flexWrap: "wrap", gap: "15px" }}>
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "28%" },
-                }}
-                onKeyUp={(event) => handleFormatCurrency(event)}
-                {...register("value")}
-                label="Valor"
-                required
-              />
-              <TextField
-                size="small"
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "28%" },
-                }}
-                type="date"
-                {...register("dueDate")}
-                label="Data de vencimento"
-                required
-                InputLabelProps={{ shrink: true }}
-              />
-              <FormControl
-                sx={{
-                  width: { xs: "100%", sm: "100%", md: "100%", lg: "28%" },
-                }}
-              >
-                <InputLabel
-                  sx={{ marginTop: "-6px" }}
-                  id="demo-simple-select-label"
-                >
-                  Forma de Pagamento
-                </InputLabel>
-                <Select
-                  size="small"
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  {...register("paymentMethod", { required: true })}
-                  label="Forma de Pagamento"
-                >
-                  <MenuItem value="BOLETO">Boleto</MenuItem>
-                  <MenuItem value="CREDIT_CARD">Cartão de crédito</MenuItem>
-                  <MenuItem value="PIX">Pix</MenuItem>
-                  <MenuItem value="UNDEFINED">Cliente define</MenuItem>
-                </Select>
-              </FormControl>
-              {/* Adicione campos adicionais se necessário (e.g. `observations`) */}
-            </Box>
-            <Button type="submit" variant="contained">
-              Criar doação única
-            </Button>
-          </Box>
-          </form>
-        </Box>
-      </Modal>
-    </div>
-  );
+        </Form>
+    
+    </Modal>
+    </ConfigProvider>
+);
 }
+
+export default ModalCampanha;

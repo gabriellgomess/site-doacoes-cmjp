@@ -33,6 +33,9 @@ const slides = [
         img: Slc,
     },
     {
+        img: NexusTech,
+    },
+    {
         img: Renner,
     },
     {
@@ -49,10 +52,8 @@ const slides = [
     },
     {
         img: ISlc,
-    },
-    {
-        img: NexusTech,
-    },
+    }
+    
 ];
 
 const Parceiros = () => {

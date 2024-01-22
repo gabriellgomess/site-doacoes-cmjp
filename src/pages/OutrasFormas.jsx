@@ -72,9 +72,12 @@ const OutrasFormas = () => {
                         />
                     </ListItem>
                 ))}
-            </List>
+            </List>            
             <Typography sx={{ margin: '15px 10px 30px 10px', fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, fontWeight: 'bold' }}>
                 CNPJ nº 89.621.767/0001-41
+            </Typography>
+            <Typography sx={{ marginTop: '15px', fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, fontWeight: 'bold' }}>
+            Atenção: Esta modalidade de doação não é dedutível no imposto de renda. 
             </Typography>
         </Container>
     )

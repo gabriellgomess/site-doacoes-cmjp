@@ -44,34 +44,34 @@ const Campanhas = () => {
             });
 
     }, []);
-    
+
 
 
     return (
-        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '50px' }}>            
+        <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', paddingTop: '50px' }}>
             <Box sx={{ width: { xs: '100%', md: '70%', lg: '900px' } }}>
-            <Swiper
-                spaceBetween={10}
-                slidesPerView={1}
-                autoplay={{
-                    delay: 4000,
-                    disableOnInteraction: false,
-                }}
-                loop={true}
-                breakpoints={{
-                    640: {
-                        slidesPerView: 2,
-                    },
-                    768: {
-                        slidesPerView: 3,
-                    }
-                }}
-                navigation = {true}
-                pagination={{
-                    clickable: true,
-                }}
-                modules={[Navigation, Pagination]}
-            >
+                <Swiper
+                    spaceBetween={10}
+                    slidesPerView={1}
+                    autoplay={{
+                        delay: 4000,
+                        disableOnInteraction: false,
+                    }}
+                    loop={true}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 2,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                        }
+                    }}
+                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[Navigation, Pagination]}
+                >
                     {slides?.map((slide, index) => (
                         <SwiperSlide key={index}>
                             <Box
@@ -104,7 +104,7 @@ const Campanhas = () => {
                                         <Link style={{ textAlign: 'center' }} to={`/campanha/${slide.id}`}>
                                             <img width='50%' src={BtnSaibaMais} alt="" />
                                         </Link>
-                                        <Box onClick={()=>handleOpen(slide)} sx={{ textAlign: 'center', cursor: 'pointer' }}>
+                                        <Box onClick={() => handleOpen(slide)} sx={{ textAlign: 'center', cursor: 'pointer' }}>
                                             <img width='50%' src={BtnDoeAgora} alt="" />
                                         </Box>
                                     </Box>

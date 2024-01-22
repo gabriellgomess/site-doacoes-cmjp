@@ -132,6 +132,12 @@ a {
 	        animation: jello-horizontal 0.9s both;
 }
 
-.swal-modal{
+.ant-select-dropdown {
+  z-index: 2000; /* Valor maior que o z-index do Modal */
+}
+
+.swal2-container{
+  z-index: 2000; /* Valor maior que o z-index do Modal */
   font-family: "BarlowRegular";
 }
+

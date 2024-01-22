@@ -1,36 +1,59 @@
-import { TextField, Button, Box } from "@mui/material";
+import { Form, Input, Button, Card, Typography } from 'antd';
+import React from 'react';
+import Img from '../../assets/img_doacao_recorrente.png';
 
 const LoginForm = ({ handleLogin, handleChangeLogin, handleShowRegister }) => {
+  const { Paragraph } = Typography;
   return (
-    <form onSubmit={handleLogin}>
-      <Box
-        sx={{
+    <Card bordered={false} style={{ minHeight: '600px' }}>
+      <Form
+        onFinish={handleLogin}
+        style={{
           display: "flex",
           flexDirection: "column",
-          width: { xs: "100%", sm: "100%", md: "50%" },
+          maxWidth: "50%",
           margin: "0 auto",
           gap: "20px",
         }}
       >
-        <TextField
+        <Form.Item
           name="email"
-          label="Usuário"
-          onChange={(e) => handleChangeLogin(e)}
-        />
-        <TextField
-          type="password"
+          rules={[{ required: true, message: 'Por favor, insira seu usuário!' }]}
+        >
+          <Input
+            placeholder="Usuário"
+            onChange={(e) => handleChangeLogin(e)}
+          />
+        </Form.Item>
+        <Form.Item
           name="password"
-          label="Senha"
-          onChange={(e) => handleChangeLogin(e)}
-        />
-        <Button variant="contained" type="submit">
-          Entrar
-        </Button>
-        <Button variant="outlined" onClick={handleShowRegister}>
-          Cadastrar
-        </Button>
-      </Box>
-    </form>
+          rules={[{ required: true, message: 'Por favor, insira sua senha!' }]}
+        >
+          <Input.Password
+            placeholder="Senha"
+            onChange={(e) => handleChangeLogin(e)}
+          />
+        </Form.Item>
+        <Form.Item>
+          <Button type="primary" htmlType="submit">
+            Entrar
+          </Button>
+          <Button
+            style={{ marginLeft: '8px' }}
+            onClick={handleShowRegister}>
+            Cadastrar
+          </Button>
+        </Form.Item>
+      </Form>
+      <div style={{ display: 'flex', alignItems: 'center', marginTop: '20px' }}>
+        <img width={120} src={Img} alt="Como funciona?" />
+        <div style={{ padding: '5px 30px' }}>
+          <Paragraph>Através da doação recorrente, você passa a doar periodicamente, você escolhe se será semanal, quinzenal, mensal, trimestral, semestral ou anual, a doação poderá ser de qualquer valor acima de R$5,00.</Paragraph>
+          <Paragraph>A qualquer momento, você pode editar sua doação, podendo mudar a periodicidade, o vencimento, o valor e a forma de pagamento </Paragraph>
+          <Paragraph>Além disso, você pode cancelar sua doação a qualquer momento.</Paragraph>
+        </div>
+      </div>
+    </Card>
   );
 };
 

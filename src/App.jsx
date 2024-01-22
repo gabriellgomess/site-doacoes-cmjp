@@ -33,6 +33,7 @@ import Admin from './pages/Admin';
 
 //IMG
 import BotaoDoar from './assets/img/doe_agora_botao2.png';
+import WhatsAppBtn from './assets/img/whatsapp_btn.png';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -64,8 +65,27 @@ function App() {
       }}
         onClick={() => setOpen(true)}
       >
-        <img width="80px" src={BotaoDoar} alt="" />
+        <Box sx={{width: {xs: '50px', md: '80px'},}}>
+          <img width="100%" src={BotaoDoar} alt="" />
+        </Box>
+        
       </Box>
+      <a href="https://wa.me/5551995728124" target='blank'>
+        <Box style={{
+          position: 'fixed',
+          left: '3%',
+          bottom: '8%',
+          zIndex: '9999',
+          
+        }}
+        >
+          <Box sx={{width: {xs: '50px', md: '80px'},}}>
+            <img width="100%" src={WhatsAppBtn} alt="" />
+          </Box>
+          
+        </Box>
+      </a>
+
       <ModalPagamento />
       <Header />
       {/* <SubHeader /> */}

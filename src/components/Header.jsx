@@ -6,8 +6,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 // Imagens
-import logoCMJP from "../assets/img/logo_horizontal_cmjp.png";
+import logoCMJP from "../assets/img/logo_horizontal_color.png";
 import logoADC from "../assets/img/ADC_logotipo_vertical2.png";
+
+// Selos
+import TopAdvb from "../assets/selos/ADVB-FEED-TOP-2022.png";
+import LigaSocial from "../assets/selos/liga-social.png";
+import MelhoresOngs from "../assets/selos/melhores-ongs.png";
+import OngTransparente from "../assets/selos/ongtransparente.png";
 
 const Header = () => {
     const [anchorEl, setAnchorEl] = useState(null);
@@ -108,6 +114,12 @@ const Header = () => {
                     Contato
                 </ListItem>
             </List>
+            <Box sx={{display: 'flex', gap: '15px', flexWrap: 'wrap', padding: '10px'}} >
+                    <img height="50px" src={TopAdvb} alt="" />
+                    <img height="50px" src={LigaSocial} alt="" />
+                    <img height="50px" src={MelhoresOngs} alt="" />
+                    <img height="50px" src={OngTransparente} alt="" />
+                </Box>
         </Drawer>
     );
 
@@ -115,20 +127,20 @@ const Header = () => {
 
     return (
         <header className="header" style={{ background: '#fff', boxShadow: '2px 2px 13px rgba(0, 0, 0, 0.5)' }}>
-            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: {xs: '20px', md: '80px'}, justifyContent: { xs: 'center', md: 'start' } }} maxWidth="lg">
-                <Box sx={{ display: { xs: 'block', md: 'none' } }}>
+            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: {xs: '20px', md: '80px'}, justifyContent: { xs: 'center', md: 'center', lg: 'space-between' } }} maxWidth="xl">
+                <Box sx={{ display: { md: 'block', lg: 'none' } }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                         <FontAwesomeIcon icon={faBars} />
                     </IconButton>
                     {drawer}
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: '40px', height: '60px', justifyContent: { xs: 'center', md: 'flex-start' } }}>
-                    <img height="100%" src={logoCMJP} alt="" />
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: '40px', height: '60px', justifyContent: { md: 'center', lg: 'flex-start' } }}>
+                    <img width="250px" src={logoCMJP} alt="" />
                     <img height="100%" src={logoADC} alt="" />
                 </Box>
 
 
-                <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                <Box sx={{ display: { xs: 'none', md: 'none', lg: 'block' } }}>
                     <nav style={{ display: 'flex', gap: '15px' }} className="nav">
                         <Link to={`${import.meta.env.VITE_URL}`} className={`nav__link ${location.pathname === '/' ? 'active' : ''}`}>
                             Home
@@ -160,6 +172,12 @@ const Header = () => {
                             Contato
                         </Link>
                     </nav>
+                </Box>
+                <Box sx={{display: {xs: 'none', md:'flex'}, gap: '15px', height: '40px'}} >
+                    <img height="100%" src={TopAdvb} alt="" />
+                    <img height="100%" src={LigaSocial} alt="" />
+                    <img height="100%" src={MelhoresOngs} alt="" />
+                    <img height="100%" src={OngTransparente} alt="" />
                 </Box>
 
             </Container>

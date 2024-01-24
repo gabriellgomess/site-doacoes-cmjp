@@ -5,12 +5,19 @@ import axios from 'axios';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { CurrencyInput } from 'react-currency-mask';
+import { useMediaQuery } from 'react-responsive';
 
 const { Option } = Select;
 const MySwal = withReactContent(Swal);
 
 const FormDoacaoUnica = ({ isMobile }) => {
     const { handleSubmit, control, reset } = useForm();
+
+    const xs = useMediaQuery({ maxWidth: 575 });
+    const sm = useMediaQuery({ minWidth: 576, maxWidth: 767 });
+    const md = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+    const lg = useMediaQuery({ minWidth: 992, maxWidth: 1199 });
+    const xl = useMediaQuery({ minWidth: 1200, maxWidth: 1599 });
 
     const onSubmit = (data) => {
         console.log(data);
@@ -42,8 +49,28 @@ const FormDoacaoUnica = ({ isMobile }) => {
             });
     };
 
+    const CardStyle = () => {
+        if (xs) {
+            return { minHeight: '500px' };
+        }
+        if (sm) {
+            return { minHeight: '500px' };
+        }
+        if (md) {
+            return { minHeight: '500px' };
+        }
+        if (lg) {
+            return { minHeight: '500px' };
+        }
+        if (xl) {
+            return { minHeight: '500px' };
+        }
+        return { minHeight: '500px' };
+    }
+
+
     return (
-        <Card bordered={false} style={{ minHeight: '500px' }}>
+        <Card bordered={false} style={CardStyle}>
             <h1>Formulário de doação única</h1>
             <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>

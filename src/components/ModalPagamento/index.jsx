@@ -14,30 +14,30 @@ import {Dialog} from '@mui/material';
 const theme = {
   components: {
     Segmented: {
-      itemSelectedBg: '#73c4bb',
+      itemSelectedBg: '#08695e',
       itemSelectedColor: '#fff',
     },
     Button: {
-      colorPrimary: '#73c4bb',
+      colorPrimary: '#08695e',
       colorPrimaryHover: '#97e1d9',
       colorPrimaryActive: '#41958c',
       colorPrimaryFocus: '#41958c',
 
     },
     Input: {
-      colorPrimary: '#73c4bb',
+      colorPrimary: '#08695e',
       colorPrimaryActive: '#41958c',
       colorPrimaryFocus: '#41958c',
       colorPrimaryHover: '#97e1d9',
     },
     Select: {
-      colorPrimary: '#73c4bb',
+      colorPrimary: '#08695e',
       colorPrimaryActive: '#41958c',
       colorPrimaryFocus: '#41958c',
       colorPrimaryHover: '#97e1d9',
     },  
     Tabs: {
-      colorPrimary: '#73c4bb',
+      colorPrimary: '#08695e',
       colorPrimaryActive: '#41958c',
       colorPrimaryFocus: '#41958c',
       colorPrimaryHover: '#97e1d9',

@@ -3,7 +3,7 @@ const Admin = () => {
     return (
         <Box sx={{ minHeight: '60vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
             <Typography color='#60aaa2' fontFamily='Staatliches' variant="h4">Acessar painel administrativo</Typography>
-            <a href='https://strapi-production-c201.up.railway.app/admin/auth/login'>
+            <a href='https://strapi-production-6e0c.up.railway.app/admin/auth/login'>
                 <Box
                     sx={{
                         background: '#f6a442',

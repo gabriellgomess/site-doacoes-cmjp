@@ -32,7 +32,7 @@ const PaginaCampanha = () => {
     useEffect(() => {
         const fetchCampanha = async () => {
             try {
-                const response = await axios.get(`https://strapi-production-c201.up.railway.app/api/campanhas/${id}?populate=*`);
+                const response = await axios.get(`https://strapi-production-6e0c.up.railway.app/api/campanhas/${id}?populate=*`);
                 setCampanha(response.data.data);
             } catch (error) {
                 console.error("Erro ao buscar dados da campanha", error);
@@ -50,7 +50,7 @@ const PaginaCampanha = () => {
     }
 
     // Destructuring for easier usage in JSX below
-    const imageUrl = campanha?.attributes?.imagem?.data?.attributes?.formats?.large?.url;
+    const imageUrl = campanha?.attributes?.imagem?.data?.attributes?.formats?.medium?.url;
 
     // Converter 'publishedAt' para o formato de data brasileiro
     const formatDate = (dateString) => {
@@ -69,7 +69,7 @@ const PaginaCampanha = () => {
             </Typography>
             {imageUrl &&
                 <Box sx={{
-                    background: `url(https://strapi-production-c201.up.railway.app${imageUrl})`,
+                    background: `url(${imageUrl})`,
                     backgroundSize: 'cover',
                     width: { xs: '100%', md: '80%' },
                     height: { xs: '200px', md: '500px' },

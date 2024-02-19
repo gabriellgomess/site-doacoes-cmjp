@@ -30,6 +30,7 @@ import DoeSeuImpostoDeRenda from './pages/DoeSeuImpostoDeRenda';
 import BazarAmigosDaCasa from './pages/BazarAmigosDaCasa';
 import PaginaCampanha from './pages/PaginaCampanha';
 import Admin from './pages/Admin';
+import Apadrinhamento from './pages/Apadrinhamento';
 
 //IMG
 import BotaoDoar from './assets/img/doe_agora_botao2.png';
@@ -107,6 +108,7 @@ function App() {
           <Route path={`${import.meta.env.VITE_URL}bazar-amigos-da-casa`} element={<BazarAmigosDaCasa />} />
           <Route path={`${import.meta.env.VITE_URL}campanha/:id`} element={<PaginaCampanha />} />
           <Route path={`${import.meta.env.VITE_URL}admin`} element={<Admin />} />
+          <Route path={`${import.meta.env.VITE_URL}apadrinhamento`} element={<Apadrinhamento />} />
 
         </Routes>
 

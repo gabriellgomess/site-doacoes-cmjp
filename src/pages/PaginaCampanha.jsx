@@ -6,6 +6,8 @@ import ReactMarkdown from 'react-markdown';
 import ModalCampanha from '../components/ModalCampanha';
 import BtnDoeAgora from '../assets/img/doe_agora_botao.png';
 
+import RenderElement from '../components/RenderElement';
+
 
 
 const PaginaCampanha = () => {
@@ -85,6 +87,8 @@ const PaginaCampanha = () => {
                 Data de Publicação: {formatDate(campanha?.attributes?.publishedAt)}
             </Typography>
             <ModalCampanha open={open} handleClose={handleClose} dadosCampanha={campanha} />
+
+            <RenderElement editorJson={campanha?.attributes?.editor_json} />
         </Container>
     );
 };

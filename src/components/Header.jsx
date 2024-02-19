@@ -46,15 +46,15 @@ const Header = () => {
             label: 'Eventos',
             path: 'eventos'
         }, 
-        // {
-        //     id: 2,
-        //     label: 'Doação por Testamento',
-        //     path: '/doacao-por-testamento'
-        // }, 
+        {
+            id: 2,
+            label: 'Apadrinhe um Acolhido',
+            path: 'apadrinhamento'
+        }, 
         {
             id: 3,
             label: 'Pix',
-            path: '/pix'
+            path: 'pix'
         }, 
         {
             id: 4,
@@ -74,7 +74,7 @@ const Header = () => {
         {
             id: 7,
             label: 'Lei da Solidariedade',
-            path: '/lei-da-solidariedade'        
+            path: 'lei-da-solidariedade'        
         },
         {
             id: 8,

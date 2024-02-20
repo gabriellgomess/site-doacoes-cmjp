@@ -62,33 +62,19 @@ const PaginaCampanha = () => {
 
     console.log(campanha);
     return (
-        <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>
-            <Typography className='texto_verde' variant="h3" component="h3" align="center" sx={{ fontFamily: 'Staatliches' }}>
-                {campanha?.attributes?.titulo}
-            </Typography>
-            <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '18px', md: '22px' } }}>
-                {campanha?.attributes?.descricao}
-            </Typography>
-            {imageUrl &&
-                <Box sx={{
-                    background: `url(${imageUrl})`,
-                    backgroundSize: 'cover',
-                    width: { xs: '100%', md: '80%' },
-                    height: { xs: '200px', md: '500px' },
-                    margin: '25px auto',
-                }}></Box>
-            }
+        <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>          
 
-            <ReactMarkdown className='text_markdown' children={campanha?.attributes?.texto_longo} />
-            <Box onClick={()=>handleOpen(campanha)} sx={{ textAlign: 'center', cursor: 'pointer', width: '350px' }}>
-                <img width='50%' src={BtnDoeAgora} alt="" />
-            </Box>
+            <RenderElement editorJson={campanha?.attributes?.editor_json} />
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '12px', md: '14px' }, margin: '30px 0', color: 'grey' }}>
                 Data de Publicação: {formatDate(campanha?.attributes?.publishedAt)}
             </Typography>
+            <Box onClick={()=>handleOpen(campanha)} sx={{ textAlign: 'center', cursor: 'pointer', width: '350px' }}>
+                <img width='50%' src={BtnDoeAgora} alt="" />
+            </Box>
+            
             <ModalCampanha open={open} handleClose={handleClose} dadosCampanha={campanha} />
 
-            <RenderElement editorJson={campanha?.attributes?.editor_json} />
+            
         </Container>
     );
 };

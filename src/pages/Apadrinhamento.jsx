@@ -14,7 +14,7 @@ const BazarAmigosDaCasa = () => {
     }, []);
     return (
         <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>
-            <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '16px', md: '20px' } }}>
+            <Typography variant="h3" component="h3" align="center" sx={{ fontFamily: 'Staatliches' }}>
             Apadrinhe um acolhido
             </Typography>
             <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '16px', md: '20px' } }}>

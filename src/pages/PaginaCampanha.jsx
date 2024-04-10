@@ -34,7 +34,7 @@ const PaginaCampanha = () => {
     useEffect(() => {
         const fetchCampanha = async () => {
             try {
-                const response = await axios.get(`https://strapi-production-6e0c.up.railway.app/api/campanhas/${id}?populate=*`);
+                const response = await axios.get(`https://srv493870.hstgr.cloud/api/campanhas/${id}?populate=*`);
                 setCampanha(response.data.data);
             } catch (error) {
                 console.error("Erro ao buscar dados da campanha", error);
@@ -62,8 +62,10 @@ const PaginaCampanha = () => {
 
     console.log(campanha);
     return (
-        <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>          
-
+        <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>
+            <div style={{backgroundImage: `url(https://srv493870.hstgr.cloud${imageUrl})`, backgroundSize: 'cover', width: '80%', height: '400px', backgroundPosition: '50%', margin: '0 auto'}}>
+            </div>          
+            
             <RenderElement editorJson={campanha?.attributes?.editor_json} />
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '12px', md: '14px' }, margin: '30px 0', color: 'grey' }}>
                 Data de Publicação: {formatDate(campanha?.attributes?.publishedAt)}

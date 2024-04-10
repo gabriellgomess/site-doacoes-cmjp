@@ -34,7 +34,7 @@ const Campanhas = () => {
     };
 
     useEffect(() => {
-        axios.get('https://strapi-production-6e0c.up.railway.app/api/campanhas?populate=*')
+        axios.get('https://srv493870.hstgr.cloud/api/campanhas?populate=*')
             .then((response) => {
                 setSlides(response.data.data);
                 console.log(response.data.data);
@@ -88,7 +88,7 @@ const Campanhas = () => {
                                 <img
                                     style={{ borderRadius: '18px' }}
                                     width='100%'
-                                    src={`${slide.attributes.imagem.data.attributes.url}`}
+                                    src={`https://srv493870.hstgr.cloud${slide.attributes.imagem.data.attributes.url}`}
                                     alt=""
                                 />
                                 <Box sx={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>

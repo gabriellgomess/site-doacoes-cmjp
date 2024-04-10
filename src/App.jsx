@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 // import DialogDonation from './components/ModalDoacao';
 import ModalPagamento from './components/ModalPagamento';
 
+
 // PAGES
 import Home from './pages/Home';
 import Sobre from './pages/Sobre';

@@ -5,6 +5,7 @@ import BannerIR from "../components/BannerIR";
 import Parceiros from "../components/Parceiros/Parceiros";
 import BannerEquipe from "../components/BannerEquipe";
 import SubHeader from "../components/SubHeader";
+import Noticias from "../components/Noticias";
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <ComoAjudar />
             <BannerIR />
             <Parceiros />
+            <Noticias />
             <BannerEquipe />
         </>
     )

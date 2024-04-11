@@ -15,7 +15,7 @@ import LigaSocial from "../assets/selos/liga-social.png";
 import MelhoresOngs from "../assets/selos/melhores-ongs.png";
 import OngTransparente from "../assets/selos/ongtransparente.png";
 
-const Header = () => {
+const Header = ({slides}) => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
@@ -86,11 +86,16 @@ const Header = () => {
             label: 'Bazar Amigos da Casa',
             path: 'bazar-amigos-da-casa'        
         },
-        {
-            id: 10,
-            label: 'Contato',
-            path: 'contato'        
-        }
+        // {
+        //     id: 10,
+        //     label: 'Contato',
+        //     path: 'contato'        
+        // },
+        ...slides.map((slide, index) => ({
+            id: index + 11,
+            label: slide.attributes.titulo,
+            path: `campanha/${slide.id}`
+        }))
     ]
 
     const drawer = (
@@ -116,9 +121,9 @@ const Header = () => {
             </List>
             <Box sx={{display: 'flex', gap: '15px', flexWrap: 'wrap', padding: '10px'}} >
                     <img height="50px" src={TopAdvb} alt="" />
-                    <img height="50px" src={LigaSocial} alt="" />
+                    {/* <img height="50px" src={LigaSocial} alt="" /> */}
                     <img height="50px" src={MelhoresOngs} alt="" />
-                    <img height="50px" src={OngTransparente} alt="" />
+                    {/* <img height="50px" src={OngTransparente} alt="" /> */}
                 </Box>
         </Drawer>
     );
@@ -173,11 +178,11 @@ const Header = () => {
                         </Link>
                     </nav>
                 </Box>
-                <Box sx={{display: {xs: 'none', md:'flex'}, gap: '15px', height: '40px'}} >
+                <Box sx={{display: {xs: 'none', md:'flex'}, gap: '15px', height: '50px'}} >
                     <img height="100%" src={TopAdvb} alt="" />
-                    <img height="100%" src={LigaSocial} alt="" />
+                    {/* <img height="100%" src={LigaSocial} alt="" /> */}
                     <img height="100%" src={MelhoresOngs} alt="" />
-                    <img height="100%" src={OngTransparente} alt="" />
+                    {/* <img height="100%" src={OngTransparente} alt="" /> */}
                 </Box>
 
             </Container>

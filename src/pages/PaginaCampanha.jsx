@@ -67,9 +67,9 @@ const PaginaCampanha = () => {
             </div>          
             
             <RenderElement editorJson={campanha?.attributes?.editor_json} />
-            <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '12px', md: '14px' }, margin: '30px 0', color: 'grey' }}>
+            {/* <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '12px', md: '14px' }, margin: '30px 0', color: 'grey' }}>
                 Data de Publicação: {formatDate(campanha?.attributes?.publishedAt)}
-            </Typography>
+            </Typography> */}
             <Box onClick={()=>handleOpen(campanha)} sx={{ textAlign: 'center', cursor: 'pointer', width: '350px' }}>
                 <img width='50%' src={BtnDoeAgora} alt="" />
             </Box>

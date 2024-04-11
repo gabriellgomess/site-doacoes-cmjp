@@ -17,9 +17,7 @@ import ModalCampanha from '../ModalCampanha';
 
 import './Campanhas.css';
 
-const Campanhas = () => {
-
-    const [slides, setSlides] = useState([]);
+const Campanhas = ({slides}) => {    
     const [open, setOpen] = useState(false);
     const [dadosCampanha, setDadosCampanha] = useState([]);
 
@@ -33,18 +31,7 @@ const Campanhas = () => {
         setDadosCampanha([]); // Limpa os dados da campanha
     };
 
-    useEffect(() => {
-        axios.get('https://srv493870.hstgr.cloud/api/campanhas?populate=*')
-            .then((response) => {
-                setSlides(response.data.data);
-                console.log(response.data.data);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-
-    }, []);
-
+ 
 
 
     return (

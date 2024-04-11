@@ -23,7 +23,7 @@ const Sobre = () => {
             </Typography>
 
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-                <span style={{ fontWeight: 'bold' }}>A Casa do Menino Jesus de Praga</span> promove acolhimento em saúde com habilitação e reabilitação multidisciplinar para pessoas com deficiência (PCDs), com lesões neurológicas e motoras de alta e média complexidade, em atendimentos de longa permanência. Hoje, são 32 acolhidos e pacientes, entre crianças, adolescentes e até adultos. Em 2022 a instituição foi indicada como <span style={{ fontWeight: 'bold' }}>melhor organização em gestão do país pelo Ministério da Cidadania e em 2023 foi vencedora na categoria Atitude Solidária no Top de MKT ADVB/RS e melhor case levando o prêmio máximo de distinção Ouro, além de ser eleita uma das 100 Melhores Ongs do País, pela quarta vez. </span>
+                A Casa de Saúde Menino Jesus de Praga promove acolhimento em saúde com habilitação e reabilitação multidisciplinar para pessoas com deficiência (PCDs), com lesões neurológicas e motoras de alta e média complexidade, em atendimentos de longa permanência. Hoje, são 33 acolhidos e pacientes, entre crianças, adolescentes e até adultos. Em 2022 a instituição foi indicada como melhor organização em gestão do país pelo Ministério da Cidadania e em 2023 foi vencedora na categoria Atitude Solidária no Top de MKT ADVB/RS e melhor case levando o prêmio máximo de distinção Ouro, além de ser eleita uma das 100 Melhores Ongs do País, pela quarta vez.
             </Typography>
             <Box sx={{
                 background: `url(${FotoBanner})`,
@@ -36,7 +36,7 @@ const Sobre = () => {
                 Localizada na Rua Nelson Zang, 420, no Bairro Intercap, em Porto Alegre (RS), a Casa mantém convênio com os órgãos de assistência social municipais, a Secretaria Estadual da Saúde, e Secretarias Municipais de Saúde de Porto Alegre e outros municípios do estado.
             </Typography>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-                <span style={{ fontWeight: 'bold' }}>A instituição tem uma estrutura hospitalar – oferecendo enfermagem 24h – com capacidade de até 75 leitos.</span> A organização também dispõe de salas para atendimento médico clínico e neurológico de seus pacientes acolhidos, espaços interativos com equipamentos destinados à terapia ocupacional e fisioterápica. Além disso, a Casa tem em sua equipe nutricionistas, farmacêuticos, psicólogos, fonoaudiólogos e assistentes sociais que ampliam a rede de apoio no atendimento.
+                A instituição tem uma estrutura hospitalar – oferecendo enfermagem 24h – com capacidade de até 100 leitos. A organização também dispõe de salas para atendimento médico clínico e neurológico de seus pacientes acolhidos, espaços interativos com equipamentos destinados à terapia ocupacional e fisioterápica. Além disso, a Casa tem em sua equipe nutricionistas, farmacêuticos, psicólogos, fonoaudiólogos e assistentes sociais que ampliam a rede de apoio no atendimento.
             </Typography>
             <Box sx={{
                 background: `url(${FotoBanner2})`,
@@ -46,7 +46,7 @@ const Sobre = () => {
                 margin: '25px auto',
             }}></Box>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-                Ao longo dos <span style={{ fontWeight: 'bold' }}>quase quarenta anos de funcionamento,</span> a Casa buscou se reinventar com o objetivo de proporcionar aos acolhidos uma melhor estrutura e atendimento, condizentes com as novas práticas de saúde e assistência. Essa reinvenção se deu após um profundo processo de entendimento das necessidades dos acolhidos, da sociedade e do papel dos serviços prestados pela Casa.
+                Ao longo dos quarenta anos de funcionamento, a Casa buscou se reinventar com o objetivo de proporcionar aos acolhidos uma melhor estrutura e atendimento, condizentes com as novas práticas de saúde e assistência. Essa reinvenção se deu após um profundo processo de entendimento das necessidades dos acolhidos, da sociedade e do papel dos serviços prestados pela Casa.
             </Typography>
             <Box sx={{
                 background: `url(${FotoBanner3})`,
@@ -56,7 +56,7 @@ const Sobre = () => {
                 margin: '25px auto',
             }}></Box>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-                Entre as iniciativas implementadas nos anos mais recentes, estão a <span style={{ fontWeight: 'bold' }}>profissionalização e ampliação do quadro funcional</span> – pois todo o atendimento de cuidado direto aos acolhidos e pacientes é realizado por funcionários da instituição – e a melhoria dos processos de gestão por meio do estabelecimento de estrutura de governança.
+                Entre as iniciativas implementadas nos anos mais recentes, estão a profissionalização e ampliação do quadro funcional – pois todo o atendimento de cuidado direto aos acolhidos e pacientes é realizado por funcionários da instituição – e a melhoria dos processos de gestão por meio do estabelecimento de estrutura de governança.
             </Typography>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
                 Para manter toda a estrutura física e de atendimento, são necessários recursos financeiros, principalmente para honrar com os custos de folha de pagamento.

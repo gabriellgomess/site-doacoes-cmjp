@@ -41,7 +41,7 @@ const OutrasFormas = () => {
                 margin: '25px auto',
             }}></Box>
             <Typography sx={{ marginTop: '15px', fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-                Os custos para manutenção da Casa e atendimento aos acolhidos são variáveis em razão de um complexo conjunto de fatores que determina o melhor tipo de atendimento para cada indivíduo.Em média, são necessários R$ 20 mil mensais por acolhido para que se possa prestar o melhor atendimento.Essa soma torna a mobilização de recursos um grande desafio para a instituição. Mesmo diante deste cenário, o objetivo da Casa do Menino Jesus de Praga continua sendo o de ampliar o número de atendimentos na área da saúde,tendo no horizonte a qualidade e a sustentabilidade da instituição.
+                Os custos para manutenção da Casa e atendimento aos acolhidos são variáveis em razão de um complexo conjunto de fatores que determina o melhor tipo de atendimento para cada indivíduo.Em média, são necessários R$ 20 mil mensais por acolhido para que se possa prestar o melhor atendimento.Essa soma torna a mobilização de recursos um grande desafio para a instituição. Mesmo diante deste cenário, o objetivo da Casa de Saúde Menino Jesus de Praga continua sendo o de ampliar o número de atendimentos na área da saúde,tendo no horizonte a qualidade e a sustentabilidade da instituição.
             </Typography>
             <Typography sx={{ marginTop: '15px', fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
                 A sua doação pode ser agilizada com a efetivação de transferências para as contas bancárias da entidade, apresentadas abaixo.
@@ -72,12 +72,12 @@ const OutrasFormas = () => {
                         />
                     </ListItem>
                 ))}
-            </List>            
+            </List>
             <Typography sx={{ margin: '15px 10px 30px 10px', fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, fontWeight: 'bold' }}>
                 CNPJ nº 89.621.767/0001-41
             </Typography>
             <Typography sx={{ marginTop: '15px', fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, fontWeight: 'bold' }}>
-            Atenção: Esta modalidade de doação não é dedutível no imposto de renda. 
+                Atenção: Esta modalidade de doação não é dedutível no imposto de renda.
             </Typography>
         </Container>
     )

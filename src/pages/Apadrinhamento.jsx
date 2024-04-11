@@ -15,10 +15,10 @@ const BazarAmigosDaCasa = () => {
     return (
         <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 0' } }}>
             <Typography variant="h3" component="h3" align="center" sx={{ fontFamily: 'Staatliches' }}>
-            Apadrinhe um acolhido
+                Apadrinhe um acolhido
             </Typography>
             <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '16px', md: '20px' } }}>
-            Apoie este projeto e contribua com o bem-estar e saúde dos acolhidos da entidade. 
+                Apoie este projeto e contribua com o bem-estar e saúde dos acolhidos da entidade.
             </Typography>
             <Box sx={{
                 background: `url(${FotoBanner1})`,
@@ -28,10 +28,10 @@ const BazarAmigosDaCasa = () => {
                 margin: '25px auto',
             }}></Box>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, margin: '20px 0' }}>
-            Ao contribuir com este projeto você ajuda a Casa do Menino a garantir atendimentos médicos, terapêuticos e de enfermagem nas 24 horas do dia.
+                Ao contribuir com este projeto você ajuda a Casa de Saúde Menino Jesus de Praga a garantir atendimentos médicos, terapêuticos e de enfermagem nas 24 horas do dia.
             </Typography>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, margin: '20px 0' }}>
-            O que oferecemos com a sua ajuda:
+                O que oferecemos com a sua ajuda:
             </Typography>
             <List>
                 <ListItem>
@@ -96,59 +96,71 @@ const BazarAmigosDaCasa = () => {
                 </ListItem>
             </List>
 
-            
+
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, margin: '20px 0' }}>
-            No ano de 2022 realizamos mensalmente: 
+                No ano de 2023 realizamos mensalmente:
             </Typography>
             <List>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="1.050 dispensações de medicações individuais" />
+                    <ListItemText primary="9.400 dispensações de medicações individuais" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="450 atendimentos em Fisioterapia" />
+                    <ListItemText primary="973 atendimentos em Fisioterapia - sendo 437 motora e 536 respiratória" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="180 atendimentos em Terapia Ocupacional" />
+                    <ListItemText primary="48 atendimentos em Fisioterapia Aquática" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="180 atendimentos em Fonoaudiologia" />
+                    <ListItemText primary="192 atendimentos em Terapia Ocupaciona" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="450 atendimentos Médico e de Enfermagem contínuos" />
+                    <ListItemText primary="160 atendimentos em Fonoaudiologia" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="264 atendimentos em Psicologia" />
+                    <ListItemText primary="600 atendimentos Médico e de Enfermagem contínuos" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="1.320 dietas via oral com especificidades para os acolhidos e pacientes" />
+                    <ListItemText primary="164 atendimentos em Psicologia" />
                 </ListItem>
                 <ListItem>
                     <ListItemIcon>
                         <StarBorderIcon />
                     </ListItemIcon>
-                    <ListItemText primary="2.673 dietas sonda e oral para os acolhidos pacientes" />
-                </ListItem>                
+                    <ListItemText primary="105 consultas com especialistas" />
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <StarBorderIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="1540 dietas via oral com especificidades para os acolhidos e pacientes" />
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon>
+                        <StarBorderIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="2.464 dietas sonda e oral para os acolhidos pacientes" />
+                </ListItem>
             </List>
 
             <Box sx={{
@@ -160,12 +172,12 @@ const BazarAmigosDaCasa = () => {
             }}></Box>
 
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-            A expectativa de vida dos acolhidos na Casa do Menino Jesus de Praga é um dado importante a ser considerado e reflete a excelência do cuidado prestado. Em 2016, por exemplo, a média da expectativa de vida dos acolhidos era de 15,7 anos. Em 2022, esse índice chegou a 21,3 anos. Esse aumento é resultado da seriedade e dedicação no atendimento prestado e da excelência médico, científica, farmacológica e assistencial oferecida pela instituição aos seus acolhidos. Esse dado é ainda mais relevante se considerarmos que, no período analisado, vivemos uma das piores crises sanitárias da história, a pandemia de Covid-19. 
+                A expectativa de vida dos acolhidos na Casa de Saúde Menino Jesus de Praga é um dado importante a ser considerado e reflete a excelência do cuidado prestado. Em 2016, por exemplo, a média da expectativa de vida dos acolhidos era de 15,7 anos. Em 2023, esse índice chegou a 20,63 anos. Esse aumento é resultado da seriedade e dedicação no atendimento prestado e da excelência médica, científica, farmacológica e assistencial oferecida pela instituição aos seus acolhidos. Em 2016, por exemplo, a média da expectativa de vida dos acolhidos era de 15,7 anos. Em 2023, esse índice chegou a 20,63 anos.
             </Typography>
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
-            Com a sua ajuda podemos fazer muito mais! 
+                Com a sua ajuda podemos fazer muito mais!
             </Typography>
-            
+
         </Container>
     )
 

@@ -7,15 +7,15 @@ import BannerEquipe from "../components/BannerEquipe";
 import SubHeader from "../components/SubHeader";
 import Noticias from "../components/Noticias";
 
-const Home = () => {
+const Home = ({slides}) => {
     return (
         <>
             <SubHeader />
-            <Campanhas />
+            <Campanhas slides={slides} />
             <ComoAjudar />
             <BannerIR />
             <Parceiros />
-            <Noticias />
+            {/* <Noticias /> */}
             <BannerEquipe />
         </>
     )

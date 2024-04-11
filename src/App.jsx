@@ -13,6 +13,7 @@ import SubHeader from './components/SubHeader';
 import Footer from './components/Footer';
 // import DialogDonation from './components/ModalDoacao';
 import ModalPagamento from './components/ModalPagamento';
+import axios from 'axios';
 
 
 // PAGES
@@ -33,6 +34,7 @@ import PaginaCampanha from './pages/PaginaCampanha';
 import Admin from './pages/Admin';
 import Apadrinhamento from './pages/Apadrinhamento';
 
+
 //IMG
 import BotaoDoar from './assets/img/doe_agora_botao2.png';
 import WhatsAppBtn from './assets/img/whatsapp_btn.png';
@@ -41,6 +43,7 @@ function App() {
   const [open, setOpen] = useState(false);
   const [isAuth, setIsAuth] = useState(false);
   const [isShaking, setIsShaking] = useState(true);
+  const [slides, setSlides] = useState([]);
 
   const theme = createTheme();
 
@@ -53,6 +56,18 @@ function App() {
 
     return () => clearInterval(intervalo);
   }, []);
+
+  useEffect(() => {
+    axios.get('https://srv493870.hstgr.cloud/api/campanhas?populate=*')
+        .then((response) => {
+            setSlides(response.data.data);
+            console.log(response.data.data);
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}, []);
+
 
   console.log(open);
 
@@ -89,12 +104,12 @@ function App() {
       </a>
 
       <ModalPagamento />
-      <Header />
+      <Header slides={slides} />
       {/* <SubHeader /> */}
       <Box sx={{ background: '#fdeced' }}>
 
         <Routes>
-          <Route path={`${import.meta.env.VITE_URL}`} element={<Home />} />
+          <Route path={`${import.meta.env.VITE_URL}`} element={<Home slides={slides} />} />
           <Route path={`${import.meta.env.VITE_URL}sobre`} element={<Sobre />} />
           <Route path={`${import.meta.env.VITE_URL}como-apoiar`} element={<ComoApoiar />} />
           <Route path={`${import.meta.env.VITE_URL}contato`} element={<Contato />} />

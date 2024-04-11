@@ -57,7 +57,7 @@ const renderElement = (element, index) => {
           background: `url(${element.image.url})`,
           backgroundSize: 'cover',
           width: { xs: '100%', md: '80%' },
-          height: { xs: '200px', md: '500px' },
+          height: { xs: '200px', md: '550px' },
           margin: '25px auto',
         }}></Box>
       );

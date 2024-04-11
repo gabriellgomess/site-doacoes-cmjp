@@ -16,14 +16,14 @@ const Contato = () => {
             <Container maxWidth='lg' sx={{ padding: '70px 0' }}>
                 <Box sx={{ minHeight: '600px' }}>
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, alignItems: 'center', gap: '60px' }}>
-                        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, gap: '60px' }}>
+                        {/* <Box sx={{ display: 'flex', flexDirection: { xs: 'column', lg: 'row' }, gap: '60px' }}>
                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <img width={150} src={LogoCMJP} alt="" />
                             </Box>
                             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                                 <img width={150} src={LogoADC} alt="" />
                             </Box>
-                        </Box>
+                        </Box> */}
 
                         <Box sx={{ marginTop: { xs: '80px', lg: '0' }, flexGrow: '1', height: '120px', display: 'flex', gap: '20px', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                             <img style={{ margin: '0 0 0 190px' }} height={80} src={ImgContato} alt="" />
@@ -46,13 +46,13 @@ const Contato = () => {
                                 </Typography>
                             </a>
                             <Box sx={{ width: '100%', display: 'flex', gap: '5px', justifyContent: 'center' }}>
-                                <a href="https://www.facebook.com/CasadoMeninoJesusdePraga" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.facebook.com/CasadeSaudeMeninoJesusdePraga" target="_blank" rel="noopener noreferrer">
                                     <img width={30} src={Face} alt="Facebook" />
                                 </a>
                                 <a href="https://www.youtube.com/@CMJP2010" target="_blank" rel="noopener noreferrer">
                                     <img width={30} src={Youtube} alt="Youtube" />
                                 </a>
-                                <a href="https://www.instagram.com/casadomeninojesusdepraga/" target="_blank" rel="noopener noreferrer">
+                                <a href="https://www.instagram.com/casadesaudemeninojesusdepraga/" target="_blank" rel="noopener noreferrer">
                                     <img width={30} src={Insta} alt="Instagram" />
                                 </a>
                             </Box>

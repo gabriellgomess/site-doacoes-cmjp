@@ -10,6 +10,9 @@ import Youtube from '../assets/img/youtube.png';
 import Whats from '../assets/img/whats.png';
 import ImgContato from '../assets/img/contato.png';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+
 const Contato = () => {
     return (
         <div>
@@ -54,6 +57,12 @@ const Contato = () => {
                                 </a>
                                 <a href="https://www.instagram.com/casadesaudemeninojesusdepraga/" target="_blank" rel="noopener noreferrer">
                                     <img width={30} src={Insta} alt="Instagram" />
+                                </a>
+
+                                <a style={{ marginBottom: '4px' }} href="https://www.linkedin.com/company/casadesaudemeninojesusdepraga" target="_blank" rel="noopener noreferrer">
+                                    <div style={{ background: '#08695e', width: 30, height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '7px' }}>
+                                        <FontAwesomeIcon style={{ color: '#fff', fontSize: '23px' }} icon={faLinkedinIn} />
+                                    </div>
                                 </a>
                             </Box>
 

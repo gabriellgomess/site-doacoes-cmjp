@@ -106,7 +106,7 @@ function App() {
       <ModalPagamento />
       <Header slides={slides} />
       {/* <SubHeader /> */}
-      <Box sx={{ background: '#fdeced' }}>
+      <Box sx={{ background: '#fdeced', paddingBottom: '50px' }}>
 
         <Routes>
           <Route path={`${import.meta.env.VITE_URL}`} element={<Home slides={slides} />} />

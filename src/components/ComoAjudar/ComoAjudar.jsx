@@ -12,6 +12,9 @@ import { EffectFade, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import Img1 from '../../assets/img/eventos.png';
 import Img2 from '../../assets/img/doacao_testamento.png';
 import Img3 from '../../assets/img/bazar.png';
+import Img4 from '../../assets/img/pix.png';
+import Img5 from '../../assets/img/nfg.png';
+import Img6 from '../../assets/img/tampinha-legal.png';
 import BtnSaibaMais from '../../assets/img/saiba_mais.png'
 
 import './ComoAjudar.css';
@@ -34,7 +37,26 @@ const slides = [
         title: 'Bazar Amigos da Casa',
         text: 'O Bazar Amigos da Casa é uma importante fonte de recurso da instituição. Apoie com a doação de roupas, calçados e acessórios novos para a nossa loja.',
         link: '/bazar-amigos-da-casa'
-    }
+    },
+    {
+        img: Img4,
+        title: 'Doação por PIX',
+        text: 'Contribua para os projetos da Casa do Menino com uma doação pelo PIX . Os valores são destinados para a manutenção do atendimento de saúde de alta e média complexidade realizado na entidade.',
+        link: '/pix'
+    },
+    {
+        img: Img5,
+        title: 'Nota Fiscal Gaúcha',
+        text: 'A Casa do Menino é uma das entidades cadastradas no Programa Nota Fiscal Gaúcha e com a sua colaboração, recebe mensalmente recursos para a compra de equipamentos.',
+        link: '/nota-fiscal-gaucha'
+    },
+    {
+        img: Img6,
+        title: 'Tampinha Legal',
+        text: 'O Tampinha Legal é o maior programa socioambiental de caráter educativo em economia circular de iniciativa da indústria de transformação do plástico das Américas.',
+        link: '/tampinha-legal'
+    },
+
 ];
 
 const ComoAjudar = () => {
@@ -103,7 +125,7 @@ const ComoAjudar = () => {
                                 sx={{
                                     color: '#fff', 
                                     fontFamily: "BarlowLight",
-                                    fontSize: '12px',
+                                    fontSize: '13px',
                                     lineHeight: '16px',
                                     textAlign: 'center',
                                     }}

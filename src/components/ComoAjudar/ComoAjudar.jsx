@@ -78,16 +78,16 @@ const ComoAjudar = () => {
                                 backgroundImage: `url(${slide.img})`,                                  
                                 backgroundSize: 'cover', 
                                 backgroundPositionY: '40%', 
-                                width: '230px',
-                                aspectRatio: '2/3.15',
+                                width: '235px',
+                                aspectRatio: '1.9/2.98',
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'start',
                                 alignItems: 'center',
-                                margin: '10px auto 40px auto', 
+                                margin: '10px auto 40px auto',
                                 }}
                             >
-                                <Box sx={{width: '80%', marginTop:'180px' }}>
+                                <Box sx={{width: '80%', marginTop:'180px'}}>
                                 <Typography 
                                 sx={{
                                     color: '#fff', 

@@ -14,7 +14,7 @@ import FooterNexus from './FooterNexus';
 
 function Footer() {
     return (
-        <Box sx={{ background: `url(${BackgroundWave})`, minHeight: { xs: '630px', md: '350px' }, backgroundSize: 'contain', backgroundRepeat: 'repeat-x', marginTop: '-50px', paddingTop: '20px', position: 'relative' }}>
+        <Box sx={{ background: `url(${BackgroundWave})`, minHeight: { xs: '630px', md: '350px' }, backgroundSize: 'contain', backgroundRepeat: 'repeat-x', marginTop: '-65px', paddingTop: '20px', position: 'relative' }}>
             <Container maxWidth='lg'>
                 <Box>
                     <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>

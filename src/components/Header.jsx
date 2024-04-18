@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 // Imagens
-import logoCMJP from "../assets/img/logo_horizontal_color.png";
-import logoADC from "../assets/img/ADC_logotipo_vertical2.png";
+import logoCMJP from "../assets/img/logo_vertical_cmjp.png";
+import logoADC_mobile from "../assets/img/ADC_logotipo_vertical2.png";
+import logoADC from "../assets/img/ADC_logotipo_horizontal.png";
 
 // Selos
 import TopAdvb from "../assets/selos/ADVB-FEED-TOP-2022.png";
@@ -15,22 +16,22 @@ import LigaSocial from "../assets/selos/liga-social.png";
 import MelhoresOngs from "../assets/selos/melhores-ongs.png";
 import OngTransparente from "../assets/selos/ongtransparente.png";
 
-const Header = ({slides}) => {
+const Header = ({ slides }) => {
     const [anchorEl, setAnchorEl] = useState(null);
 
     const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);      
+        setAnchorEl(event.currentTarget);
     };
-    
+
     const handleClose = () => {
-      setAnchorEl(null);
-      handleDrawerClose();
+        setAnchorEl(null);
+        handleDrawerClose();
     };
 
     const location = useLocation();
 
     const [open, setOpen] = useState(false);
-    
+
 
     const handleDrawerOpen = () => {
         setOpen(true);
@@ -45,52 +46,57 @@ const Header = ({slides}) => {
             id: 1,
             label: 'Eventos',
             path: 'eventos'
-        }, 
+        },
         {
             id: 2,
             label: 'Apadrinhe um Acolhido',
             path: 'apadrinhamento'
-        }, 
+        },
         {
             id: 3,
             label: 'Pix',
             path: 'pix'
-        }, 
+        },
         {
             id: 4,
             label: 'Nota Fiscal Gaúcha',
-            path: 'nota-fiscal-gaucha'        
+            path: 'nota-fiscal-gaucha'
         },
         {
             id: 5,
             label: 'Tampinha Legal',
-            path: 'tampinha-legal'        
+            path: 'tampinha-legal'
         },
         {
             id: 6,
             label: 'Outras formas',
-            path: 'outras-formas'        
+            path: 'outras-formas'
         },
         {
             id: 7,
             label: 'Lei da Solidariedade',
-            path: 'lei-da-solidariedade'        
+            path: 'lei-da-solidariedade'
         },
         {
             id: 8,
             label: 'Doe seu imposto de renda',
-            path: 'doe-seu-imposto-de-renda'        
+            path: 'doe-seu-imposto-de-renda'
         },
         {
             id: 9,
             label: 'Bazar Amigos da Casa',
-            path: 'bazar-amigos-da-casa'        
+            path: 'bazar-amigos-da-casa'
         },
-        // {
-        //     id: 10,
-        //     label: 'Contato',
-        //     path: 'contato'        
-        // },
+        {
+            id: 10,
+            label: 'Trabalho Voluntário',
+            path: 'trabalho-voluntario'        
+        },
+        {
+            id: 11,
+            label: 'Doação por Testamento',
+            path: 'doacao-por-testamento'        
+        },
         ...slides.map((slide, index) => ({
             id: index + 11,
             label: slide.attributes.titulo,
@@ -119,12 +125,12 @@ const Header = ({slides}) => {
                     Contato
                 </ListItem>
             </List>
-            <Box sx={{display: 'flex', gap: '15px', flexWrap: 'wrap', padding: '10px'}} >
-                    <img height="50px" src={TopAdvb} alt="" />
-                    {/* <img height="50px" src={LigaSocial} alt="" /> */}
-                    <img height="50px" src={MelhoresOngs} alt="" />
-                    {/* <img height="50px" src={OngTransparente} alt="" /> */}
-                </Box>
+            <Box sx={{ display: 'flex', gap: '15px', flexWrap: 'wrap', padding: '10px' }} >
+                <img height="50px" src={TopAdvb} alt="" />
+                {/* <img height="50px" src={LigaSocial} alt="" /> */}
+                <img height="50px" src={MelhoresOngs} alt="" />
+                {/* <img height="50px" src={OngTransparente} alt="" /> */}
+            </Box>
         </Drawer>
     );
 
@@ -132,16 +138,21 @@ const Header = ({slides}) => {
 
     return (
         <header className="header" style={{ background: '#fff', boxShadow: '2px 2px 13px rgba(0, 0, 0, 0.5)' }}>
-            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: {xs: '20px', md: '80px'}, justifyContent: { xs: 'center', md: 'center', lg: 'space-between' } }} maxWidth="xl">
+            <Container sx={{ display: 'flex', alignItems: 'center', padding: '20px 0', gap: { xs: '20px', md: '80px' }, justifyContent: { xs: 'center', md: 'center', lg: 'space-between' } }} maxWidth="xl">
                 <Box sx={{ display: { md: 'block', lg: 'none' } }}>
                     <IconButton edge="start" color="inherit" aria-label="menu" onClick={handleDrawerOpen}>
                         <FontAwesomeIcon icon={faBars} />
                     </IconButton>
                     {drawer}
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: '40px', height: '60px', justifyContent: { md: 'center', lg: 'flex-start' } }}>
-                    <img width="250px" src={logoCMJP} alt="" />
-                    <img height="100%" src={logoADC} alt="" />
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: '40px', height: '60px', justifyContent: { md: 'center', lg: 'flex-start' }, width: { xs: '80%', md: '80%', lg: '30%'} }}>
+                    <img width="60px" src={logoCMJP} alt="" />
+                    <Box sx={{ display: { xs: 'block', sm: 'block', md: 'block', lg: 'none' }, height: '100%' }}>
+                         <img height="100%" src={logoADC_mobile} alt="" />
+                    </Box>
+                    <Box sx={{ display: { xs: 'none', sm: 'none', md: 'none', lg: 'block' }, height: '100%' }}>                       
+                        <img height="100%" src={logoADC} alt="" />
+                    </Box>
                 </Box>
 
 
@@ -154,7 +165,7 @@ const Header = ({slides}) => {
                             Sobre
                         </Link>
                         <div>
-                            <Typography sx={{cursor: 'pointer'}} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} className='nav__link'>
+                            <Typography sx={{ cursor: 'pointer' }} aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick} className='nav__link'>
                                 Como apoiar <FontAwesomeIcon icon={faChevronDown} />
                             </Typography>
                             <Menu
@@ -164,13 +175,13 @@ const Header = ({slides}) => {
                                 open={Boolean(anchorEl)}
                                 onClose={handleClose}
                             >
-                            {links.map((link, index) => (
-                                <MenuItem key={index} onClick={handleClose}>
-                                    <Link to={`${import.meta.env.VITE_URL}${link.path}`} className={`nav__link ${location.pathname === link.path ? 'active' : ''}`}>
-                                        {link.label}
-                                    </Link>
-                                </MenuItem>
-                            ))}
+                                {links.map((link, index) => (
+                                    <MenuItem key={index} onClick={handleClose}>
+                                        <Link to={`${import.meta.env.VITE_URL}${link.path}`} className={`nav__link ${location.pathname === link.path ? 'active' : ''}`}>
+                                            {link.label}
+                                        </Link>
+                                    </MenuItem>
+                                ))}
                             </Menu>
                         </div>
                         <Link to={`${import.meta.env.VITE_URL}contato`} className={`nav__link ${location.pathname === '/contato' ? 'active' : ''}`}>
@@ -178,7 +189,7 @@ const Header = ({slides}) => {
                         </Link>
                     </nav>
                 </Box>
-                <Box sx={{display: {xs: 'none', md:'flex'}, gap: '15px', height: '50px'}} >
+                <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: '15px', height: '50px' }} >
                     <img height="100%" src={TopAdvb} alt="" />
                     {/* <img height="100%" src={LigaSocial} alt="" /> */}
                     <img height="100%" src={MelhoresOngs} alt="" />

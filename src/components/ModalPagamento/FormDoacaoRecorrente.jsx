@@ -345,6 +345,7 @@ const FormDoacaoRecorrente = ({ isMobile }) => {
 
     const logoutUser = () => {
         localStorage.removeItem("loginToken");
+        window.location.reload();
     }
     // ##################### collapse #####################
 

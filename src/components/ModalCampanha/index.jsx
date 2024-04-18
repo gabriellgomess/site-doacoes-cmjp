@@ -56,6 +56,7 @@ const theme = {
       data = {
             ...data,
             externalReference: dadosCampanha?.attributes?.id_campanha,
+            nome_campanha: dadosCampanha?.attributes?.titulo,
       };
       axios.post(`${import.meta.env.VITE_URL_AXIOS}/createClientAndDonation.php`, data)
           .then((response) => {

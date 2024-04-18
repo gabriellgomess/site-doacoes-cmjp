@@ -15,6 +15,12 @@ import Img3 from '../../assets/img/bazar.png';
 import Img4 from '../../assets/img/pix.png';
 import Img5 from '../../assets/img/nfg.png';
 import Img6 from '../../assets/img/tampinha-legal.png';
+import Img7 from '../../assets/img/outras-formas.png';
+import Img8 from '../../assets/img/doe-ir.png';
+import Img9 from '../../assets/img/apadrinhe-acolhido.png';
+import Img10 from '../../assets/img/contato2.png';
+import Img11 from '../../assets/img/lei-solidariedade.png';
+
 import BtnSaibaMais from '../../assets/img/saiba_mais.png'
 
 import './ComoAjudar.css';
@@ -27,7 +33,7 @@ const slides = [
         link: '/eventos'
     },
     {
-        img: Img2,
+        img: Img8,
         title: 'Doe seu imposto de renda',
         text: 'Deduza doações do Imposto de Renda pelo programa Funcriança, aberto a pessoas físicas e jurídicas.',
         link: '/doe-seu-imposto-de-renda'
@@ -56,6 +62,36 @@ const slides = [
         text: 'O Tampinha Legal é o maior programa socioambiental de caráter educativo em economia circular de iniciativa da indústria de transformação do plástico das Américas.',
         link: '/tampinha-legal'
     },
+    {
+        img: Img7,
+        title: 'Outras formas de ajudar',
+        text: 'Colabore com a manutenção da entidade. Todo valor é bem-vindo. Faça agora mesmo uma transferência para um de nossos bancos.',
+        link: '/outras-formas'
+    },
+    {
+        img: Img11,
+        title: 'Lei da Solidariedade',
+        text: 'A Lei da Solidariedade oportuniza o investimento em projetos sociais com incentivos fiscais por meio do Imposto de Circulação de Mercadorias - ICMs.',
+        link: '/lei-da-solidariedade'
+    },
+    {
+        img: Img9,
+        title: 'Apadrinhe um acolhido',
+        text: 'Ao contribuir com este projeto você ajuda a Casa de Saúde Menino Jesus de Praga a garantir atendimentos médicos, terapêuticos e de enfermagem nas 24 horas do dia.',
+        link: '/apadrinhamento'
+    },
+    {
+        img: Img2,
+        title: 'Doação por testamento',
+        text: "Inclua a Casa do Menino no seu testamento e beneficie PCD's (pessoa com deficiência) de alte e média complexidade.",
+        link: '/doacao-por-testamento'
+    },
+    {
+        img: Img10,
+        title: 'Contato',
+        text: "Entre em contato conosco para saber mais sobre como ajudar a Casa do Menino!",
+        link: '/contato'
+    }
 
 ];
 

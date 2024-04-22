@@ -8,7 +8,9 @@ import FormDoacaoUnica from './FormDoacaoUnica';
 import DoacaoRecorrente from './DoacaoRecorrente';
 import DoacaoIR from './DoacaoIR';
 
-import {Dialog} from '@mui/material';
+import {Dialog, IconButton} from '@mui/material';
+
+import CloseIcon from '@mui/icons-material/Close';
 
 // Definindo tokens de design personalizados
 const theme = {
@@ -72,15 +74,21 @@ const Modal = () => {
     <Dialog
     fullWidth={true}
     maxWidth='lg'
+    fullScreen={isMobile?true:false}
     open={open}
     onClose={handleClose}
   >
     <ConfigProvider theme={theme}>
       <>
+      <div style={{width: '100%', display: 'flex', justifyContent: 'end'}}>
+        <IconButton onClick={handleClose}>
+          <CloseIcon />
+        </IconButton>
+      </div>
         <Segmented
           options={['Doação Única', 'Doação Recorrente', 'Doação IR']}
           onChange={(value) => setSelectedOption(value)}
-          style={{ margin: '20px ', backgroundColor: '#fff' }}
+          style={{ margin: isMobile?'2px':'10px', backgroundColor: '#fff', position: 'absolute', top: '0' }}
         />
         <div style={{minHeight: '600px'}}>
           {renderContent()}

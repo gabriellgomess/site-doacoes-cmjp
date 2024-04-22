@@ -387,7 +387,7 @@ const FormDoacaoRecorrente = ({ isMobile }) => {
                         children: <>
                             <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
                                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-                                    <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 1 }} label="ID do Doador">
+                                    <Form.Item style={isMobile ? { width: '100%', marginBottom: '10px' } : { flexGrow: 1 }} label="ID do Doador">
                                         <Controller
                                             name="customer_id"
                                             control={control}

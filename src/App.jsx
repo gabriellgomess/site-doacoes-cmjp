@@ -50,14 +50,14 @@ function App() {
   const [slides, setSlides] = useState([]);
   const [triggerAnimation, setTriggerAnimation] = useState(true);
 
-    // Controle de animação
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setTriggerAnimation(prev => !prev); // Toggle para reiniciar a animação
-      }, 5000); // Intervalo de 5 segundos
-  
-      return () => clearInterval(interval);
-    }, []);
+  // Controle de animação
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTriggerAnimation(prev => !prev); // Toggle para reiniciar a animação
+    }, 5000); // Intervalo de 5 segundos
+
+    return () => clearInterval(interval);
+  }, []);
 
   const theme = createTheme();
 
@@ -89,22 +89,16 @@ function App() {
     <ContextAPI.Provider value={{ open, setOpen, isAuth, setIsAuth }}>
       <Box className={triggerAnimation ? 'jello-vertical' : ''}
         onClick={() => setOpen(true)} style={{
-        position: 'fixed',
-        left: isMobile ? '65%' : '2%',
-        bottom: '3%',
-        zIndex: '9999',
-        cursor: 'pointer',
-        width: '60px',
-        height: '60px'
-        
-      }}
-      
+          position: 'fixed',
+          left: isMobile ? '60%' : '2%',
+          bottom: '3.5%',
+          zIndex: '900',
+          cursor: 'pointer',
+          width: '60px',
+          height: '60px'
+        }}
       >
-                
-          <img width="100%" src={BotaoDoar} alt="" />          
-        
-
-
+        <img width="100%" src={BotaoDoar} alt="" />
       </Box>
       {/* <a href="https://wa.me/5551995728124" target='blank'>
         <Box style={{
@@ -135,7 +129,7 @@ function App() {
         allowEsc={true}
       />
 
-      <ModalPagamento />
+      <ModalPagamento style={{zIndex: 999}} />
       <Header slides={slides} />
       {/* <SubHeader /> */}
       <Box sx={{ background: '#fdeced', paddingBottom: '50px' }}>

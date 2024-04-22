@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Container, Box } from '@mui/material'
 import { createTheme } from '@mui/material/styles';
+import { FloatingWhatsApp } from 'react-floating-whatsapp'
 
 import ContextAPI from './components/ContextAPI';
 
@@ -39,6 +40,7 @@ import TrabalhoVoluntario from './pages/TrabalhoVoluntario';
 //IMG
 import BotaoDoar from './assets/img/doe_agora_botao2.png';
 import WhatsAppBtn from './assets/img/whatsapp_btn.png';
+import logoWhats from './assets/img/profile_whats.png';
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -76,19 +78,19 @@ function App() {
     <ContextAPI.Provider value={{ open, setOpen, isAuth, setIsAuth }}>
       <Box className={isShaking ? 'shake' : ''} style={{
         position: 'fixed',
-        right: '3%',
-        bottom: '8%',
+        left: '2%',
+        bottom: '4%',
         zIndex: '9999',
         cursor: 'pointer',
       }}
         onClick={() => setOpen(true)}
       >
-        <Box sx={{width: {xs: '50px', md: '80px'},}}>
+        <Box sx={{width: {xs: '60px', md: '60px'},}}>
           <img width="100%" src={BotaoDoar} alt="" />
         </Box>
         
       </Box>
-      <a href="https://wa.me/5551995728124" target='blank'>
+      {/* <a href="https://wa.me/5551995728124" target='blank'>
         <Box style={{
           position: 'fixed',
           left: '3%',
@@ -102,7 +104,17 @@ function App() {
           </Box>
           
         </Box>
-      </a>
+      </a> */}
+      <FloatingWhatsApp
+          phoneNumber="+5551995728124"
+          accountName="Amigos da Casa"
+          avatar={logoWhats}
+          chatMessage="Olá! Que bom ter você por aqui!"
+          darkMode={false}
+          placeholder="Digite sua mensagem..."
+          showPopup={true}
+          statusMessage="Online"
+        />
 
       <ModalPagamento />
       <Header slides={slides} />

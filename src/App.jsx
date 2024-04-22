@@ -35,6 +35,7 @@ import PaginaCampanha from './pages/PaginaCampanha';
 import Admin from './pages/Admin';
 import Apadrinhamento from './pages/Apadrinhamento';
 import TrabalhoVoluntario from './pages/TrabalhoVoluntario';
+import { useMediaQuery } from 'react-responsive';
 
 
 //IMG
@@ -47,6 +48,16 @@ function App() {
   const [isAuth, setIsAuth] = useState(false);
   const [isShaking, setIsShaking] = useState(true);
   const [slides, setSlides] = useState([]);
+  const [triggerAnimation, setTriggerAnimation] = useState(true);
+
+    // Controle de animação
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setTriggerAnimation(prev => !prev); // Toggle para reiniciar a animação
+      }, 5000); // Intervalo de 5 segundos
+  
+      return () => clearInterval(interval);
+    }, []);
 
   const theme = createTheme();
 
@@ -62,33 +73,38 @@ function App() {
 
   useEffect(() => {
     axios.get('https://srv493870.hstgr.cloud/api/campanhas?populate=*')
-        .then((response) => {
-            setSlides(response.data.data);
-            console.log(response.data.data);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-}, []);
+      .then((response) => {
+        setSlides(response.data.data);
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
+  const isMobile = useMediaQuery({ maxWidth: 767 });
 
-  console.log(open);
 
   return (
     <ContextAPI.Provider value={{ open, setOpen, isAuth, setIsAuth }}>
-      <Box className={isShaking ? 'shake' : ''} style={{
+      <Box className={triggerAnimation ? 'jello-vertical' : ''}
+        onClick={() => setOpen(true)} style={{
         position: 'fixed',
-        left: '2%',
-        bottom: '4%',
+        left: isMobile ? '65%' : '2%',
+        bottom: '3%',
         zIndex: '9999',
         cursor: 'pointer',
-      }}
-        onClick={() => setOpen(true)}
-      >
-        <Box sx={{width: {xs: '60px', md: '60px'},}}>
-          <img width="100%" src={BotaoDoar} alt="" />
-        </Box>
+        width: '60px',
+        height: '60px'
         
+      }}
+      
+      >
+                
+          <img width="100%" src={BotaoDoar} alt="" />          
+        
+
+
       </Box>
       {/* <a href="https://wa.me/5551995728124" target='blank'>
         <Box style={{
@@ -106,15 +122,18 @@ function App() {
         </Box>
       </a> */}
       <FloatingWhatsApp
-          phoneNumber="+5551995728124"
-          accountName="Amigos da Casa"
-          avatar={logoWhats}
-          chatMessage="Olá! Que bom ter você por aqui!"
-          darkMode={false}
-          placeholder="Digite sua mensagem..."
-          showPopup={true}
-          statusMessage="Online"
-        />
+        phoneNumber="+5551995728124"
+        accountName="Amigos da Casa"
+        avatar={logoWhats}
+        chatMessage="Olá! Que bom ter você por aqui!"
+        darkMode={false}
+        placeholder="Digite sua mensagem..."
+        showPopup={true}
+        statusMessage="Online"
+        notification={false}
+        allowClickAway={true}
+        allowEsc={true}
+      />
 
       <ModalPagamento />
       <Header slides={slides} />

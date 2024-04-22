@@ -71,7 +71,7 @@ const FormDoacaoUnica = ({ isMobile }) => {
 
     return (
         <Card bordered={false} style={CardStyle}>
-            <h1>Formulário de doação única</h1>
+            <h2>Formulário de doação única</h2>
             <Form layout="vertical" onFinish={handleSubmit(onSubmit)}>
                 <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
                     <Form.Item style={isMobile ? { width: '100%' } : { flexGrow: 3 }} label="Nome">

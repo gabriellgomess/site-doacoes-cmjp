@@ -76,13 +76,13 @@ const Modal = () => {
     maxWidth='lg'
     fullScreen={isMobile?true:false}
     open={open}
-    onClose={handleClose}
+    onClose={handleClose}    
   >
     <ConfigProvider theme={theme}>
       <>
       <div style={{width: '100%', display: 'flex', justifyContent: 'end'}}>
         <IconButton onClick={handleClose}>
-          <CloseIcon />
+          <CloseIcon sx={{fontSize: '30px', color: 'tomato'}} />
         </IconButton>
       </div>
         <Segmented
@@ -92,8 +92,7 @@ const Modal = () => {
         />
         <div style={{minHeight: '600px'}}>
           {renderContent()}
-        </div>
-        
+        </div>        
       </>
     </ConfigProvider>
   </Dialog>

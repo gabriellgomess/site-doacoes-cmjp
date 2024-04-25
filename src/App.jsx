@@ -35,6 +35,8 @@ import PaginaCampanha from './pages/PaginaCampanha';
 import Admin from './pages/Admin';
 import Apadrinhamento from './pages/Apadrinhamento';
 import TrabalhoVoluntario from './pages/TrabalhoVoluntario';
+import SerDoador from './pages/SerDoador'
+
 import { useMediaQuery } from 'react-responsive';
 
 
@@ -152,6 +154,7 @@ function App() {
           <Route path={`${import.meta.env.VITE_URL}admin`} element={<Admin />} />
           <Route path={`${import.meta.env.VITE_URL}apadrinhamento`} element={<Apadrinhamento />} />
           <Route path={`${import.meta.env.VITE_URL}trabalho-voluntario`} element={<TrabalhoVoluntario />} />
+          <Route path={`${import.meta.env.VITE_URL}ser-doador`} element={<SerDoador />} />
 
         </Routes>
 

@@ -16,10 +16,10 @@ const OutrasFormas = () => {
 
     const bancos = [
         { avatar: BancoDoBrasil, banco: 'Banco do Brasil', agencia: 'Agência: 5745-2', conta: 'Conta: 11287-9' },
-        { avatar: Banrisul, banco: 'Banrisul', agencia: 'Agência: 001', conta: 'Conta: 06.851.8500-0' },
+        { avatar: Banrisul, banco: 'Banrisul', agencia: 'Agência: 0100', conta: 'Conta: 06181528.0-8' },
         { avatar: Caixa, banco: 'Caixa Econômica Federal', agencia: 'Agência: 3460', operacao: '003', conta: 'Conta: 000411-6' },
         { avatar: Sicredi, banco: 'Sicredi (748)', agencia: 'Agência: 0116', conta: 'Conta: 50167-6' },
-        { avatar: Itau, banco: 'Itau', agencia: 'Agência: 0897', conta: 'Conta: 50167-6' }
+        { avatar: Itau, banco: 'Itau', agencia: 'Agência: 0897', conta: 'Conta: 64100-7' }
     ]
 
     return (

@@ -33,9 +33,9 @@ const DoeSeuImpostoDeRenda = () => {
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, fontWeight: 'bold', margin: '20px 0' }}>
                 Um dos instrumentos para doar é o FUNCRIANÇA!
             </Typography>
-            <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
+            {/* <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' } }}>
                 Faça contato com a gente, para orientarmos a melhor forma de promover seu evento em benefício da Casa.
-            </Typography>
+            </Typography> */}
             <Typography sx={{ fontFamily: 'BarlowRegular', fontSize: { xs: '16px', md: '20px' }, margin: '20px 0' }}>
                 Se você, <span style={{ fontWeight: 'bold' }}>PESSOA FÍSICA</span>, faz a declaração do imposto de renda pelo Modelo Completo, <span style={{ fontWeight: 'bold' }}>pode doar até 6% do imposto de renda devido </span>
                 para a Casa do Menino. É simples! Basta entrar no site do Fundo Municipal dos Direitos da Criança e do

@@ -64,9 +64,9 @@ const slides = [
     },
     {
         img: Img7,
-        title: 'Outras formas de ajudar',
+        title: 'Transferência Bancária',
         text: 'Colabore com a manutenção da entidade. Todo valor é bem-vindo. Faça agora mesmo uma transferência para um de nossos bancos.',
-        link: '/outras-formas'
+        link: '/transferencia-bancaria'
     },
     {
         img: Img11,

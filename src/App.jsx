@@ -146,7 +146,7 @@ function App() {
           <Route path={`${import.meta.env.VITE_URL}pix`} element={<Pix />} />
           <Route path={`${import.meta.env.VITE_URL}nota-fiscal-gaucha`} element={<NotaFiscalGaucha />} />
           <Route path={`${import.meta.env.VITE_URL}tampinha-legal`} element={<TampinhaLegal />} />
-          <Route path={`${import.meta.env.VITE_URL}outras-formas`} element={<OutrasFormas />} />
+          <Route path={`${import.meta.env.VITE_URL}transferencia-bancaria`} element={<OutrasFormas />} />
           <Route path={`${import.meta.env.VITE_URL}lei-da-solidariedade`} element={<LeiDaSolidariedade />} />
           <Route path={`${import.meta.env.VITE_URL}doe-seu-imposto-de-renda`} element={<DoeSeuImpostoDeRenda />} />
           <Route path={`${import.meta.env.VITE_URL}bazar-amigos-da-casa`} element={<BazarAmigosDaCasa />} />

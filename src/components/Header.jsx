@@ -69,8 +69,8 @@ const Header = ({ slides }) => {
         },
         {
             id: 6,
-            label: 'Outras formas',
-            path: 'outras-formas'
+            label: 'Transferência Bancária',
+            path: 'transferencia-bancaria'
         },
         {
             id: 7,

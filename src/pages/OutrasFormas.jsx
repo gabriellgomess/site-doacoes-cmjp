@@ -25,7 +25,7 @@ const OutrasFormas = () => {
     return (
         <Container maxWidth="lg" sx={{ padding: { xs: '40px 15px', md: '80px 10px' } }}>
             <Typography variant="h3" component="h3" align="center" sx={{ fontFamily: 'Staatliches' }}>
-                Outras formas de colaborar
+                Transferência Bancária
             </Typography>
             <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '16px', md: '20px' } }}>
                 Colabore com a manutenção da entidade. Todo valor é bem-vindo.

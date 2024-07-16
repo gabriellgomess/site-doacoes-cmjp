@@ -17,7 +17,7 @@ const BazarAmigosDaCasa = () => {
                 <img width='100%' src={LogoBazar} alt="" />
             </Box>
             <Typography align='center' sx={{ fontFamily: 'BarlowRegular', fontWeight: 'bold', fontSize: { xs: '16px', md: '20px' } }}>
-                O Bazar Amigos da Casa é uma importante fonte de recursos da instituição. Apoie com a doação de roupas, calçados e acessórios novos para a nossa loja ou adquira produtos novos com preços de Bazar.
+                O Bazar Amigos da Casa é uma importante fonte de recursos da instituição. Apoie este projeto com a compra de roupas, calçados e acessórios.
             </Typography>
             <Box sx={{
                 background: `url(${BazarBanner})`,

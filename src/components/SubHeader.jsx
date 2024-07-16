@@ -13,6 +13,7 @@ import Img1 from '../assets/img/slide1.jpg';
 import Img2 from '../assets/img/slide2.jpg';
 import Img3 from '../assets/img/slide3.jpg';
 import Btn from '../assets/img/doe_agora_botao.png'
+import BtnSaibaMais from '../assets/img/saiba_mais.png'
 
 
 
@@ -27,12 +28,14 @@ const slides = [
         img: Img2,
         title: 'APLIQUE PARTE DO SEU IR NO MELHOR DOS FUNDOS: FUNCRIANÇA.',
         text: 'Programa federal onde pessoas físicas (que declaram pelo modelo completo) e jurídicas (enquadradas no regime de lucro real) fazer doações e abatem diretamente no imposto de renda devido.',
-        link: 'https://doacoes.prefeitura.poa.br/projeto/1768/cadastra-doacao'
+        link: 'https://doacoes.prefeitura.poa.br/projeto/1859'
     },
     {
         img: Img3,
         title: 'BAZAR',
-        text: 'O Bazar Amigos da Casa é uma importante fonte de recursos da instituição. Apoie com a doação de roupas, calçados e acessórios novos para a nossa loja.'
+        text: 'O Bazar Amigos da Casa é uma importante fonte de recursos da instituição. Apoie este projeto com a compra de roupas, calçados e acessórios. ',
+        text2: 'Quartas-feiras 13h às 17h | Primeiro sábado do mês 10h às 15h.',
+        link: '/bazar-amigos-da-casa'
     }
 ];
 
@@ -59,15 +62,26 @@ const SubHeader = () => {
                                 <Box sx={{ width: { xs: "95%", md: "600px" }, marginLeft: { xs: '10px', md: '25%' } }}>
                                     <Typography sx={{ fontFamily: "Staatliches", fontSize: { xs: '1.5rem', md: '4rem' }, color: "#fff", lineHeight: { xs: '35px', md: '60px' }, fontWeight: "100" }}>{slide.title}</Typography>
                                     <Typography sx={{ fontFamily: "BarlowLight", fontSize: { xs: '1rem', md: '1.2rem' }, color: "#fff", lineHeight: { xs: '25px', md: '40px' }, fontWeight: { xs: '900', md: '500' } }}>{slide.text}</Typography>
-                                    {index !== 1 ?
+                                    {slide.text2 && <Typography sx={{ fontFamily: "BarlowLight", fontSize: { xs: '1rem', md: '1.2rem' }, color: "#fff", lineHeight: { xs: '25px', md: '40px' }, fontWeight: { xs: '900', md: '900' } }}>{slide.text2}</Typography>}
+
+                                    {index == 0 ?
                                         <Box sx={{ cursor: 'pointer' }} onClick={() => setOpen(true)}>
                                             <img style={{ marginTop: '15px' }} width={150} src={Btn} alt="" />
                                         </Box>
                                         :
-                                        <a href={slide.link} target='blank'>
-                                            <img style={{ marginTop: '15px' }} width={150} src={Btn} alt="" />
-                                        </a>
-                                        }
+                                        index == 2 ?
+                                            <a href={slide.link}>
+                                                <Box sx={{ cursor: 'pointer' }}>
+                                                    <img style={{ marginTop: '15px' }} width={150} src={BtnSaibaMais} alt="" />
+                                                </Box>
+                                            </a>
+
+                                            :
+                                            <a href={slide.link} target='blank'>
+                                                <img style={{ marginTop: '15px' }} width={150} src={Btn} alt="" />
+                                            </a>
+                                    }
+
                                 </Box>
                             </Box>
                         </Box>

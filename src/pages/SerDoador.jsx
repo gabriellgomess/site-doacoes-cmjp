@@ -45,7 +45,7 @@ const theme = {
 };
 
 const SerDoador = () => {
-    const [selectedOption, setSelectedOption] = useState('Doação Única');
+    const [selectedOption, setSelectedOption] = useState('Doação Recorrente');
     const { open, setOpen } = useContext(ContextAPI);
 
     const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -73,6 +73,7 @@ const SerDoador = () => {
             <div style={{width: isMobile?'100%':'70%', margin: '0 auto'}}>                
                 <Segmented
                     options={['Doação Única', 'Doação Recorrente', 'Doação IR']}
+                    value={selectedOption}
                     onChange={(value) => setSelectedOption(value)}
                     style={{ margin: isMobile ? '2px' : '10px', backgroundColor: '#fff' }}
                 />
